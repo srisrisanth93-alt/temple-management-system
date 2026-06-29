@@ -22,3 +22,19 @@
 ::-webkit-scrollbar-thumb {
   @apply bg-temple-maroon/30 dark:bg-temple-gold/30 rounded-full hover:bg-temple-maroon/50 dark:hover:bg-temple-gold/50;
 }
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

@@ -36,10 +36,21 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-900/30" />
         
         {/* Hero Content */}
-        <div className="relative max-w-5xl mx-auto px-4 text-center text-white space-y-6">
+        <div className="relative max-w-5xl mx-auto px-4 text-center text-white space-y-6 animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-serif font-extrabold tracking-wide drop-shadow-md text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-temple-goldLight">
             {t('templeName')}
           </h1>
+          <p className="text-base md:text-xl font-medium tracking-widest text-slate-200 drop-shadow">
+            {language === 'en' ? 'Peace • Devotion • Blessings' : 'அமைதி • பக்தி • அருள்'}
+          </p>
+          <div className="pt-2">
+            <Link 
+              to="/about" 
+              className="inline-block px-8 py-3 bg-gradient-to-r from-temple-gold to-temple-saffron hover:from-temple-saffron hover:to-temple-gold text-slate-950 font-bold rounded-full shadow-lg hover:shadow-temple-gold/30 hover:scale-105 transform active:scale-95 transition-all cursor-pointer text-sm tracking-wide"
+            >
+              {language === 'en' ? 'Explore More' : 'மேலும் அறிய'}
+            </Link>
+          </div>
         </div>
 
         {/* Bottom Curve wave */}
