@@ -1,7 +1,9 @@
 import React from 'react';
 import { Sparkles, ShieldCheck } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const About = () => {
+  const { t, language } = useLanguage();
   const historyPointsTA = [
     "முனியப்பன் சாமி தமிழ்நாட்டின் கிராமப்புறங்களில் வழிபடப்படும் சக்தி வாய்ந்த காவல் தெய்வமாக கருதப்படுகிறார்.",
     "கிராம மக்களை தீய சக்திகள் மற்றும் இயற்கை பேரிடர்களிலிருந்து காப்பவர் என்று நம்பப்படுகிறது.",
@@ -32,7 +34,7 @@ const About = () => {
             </div>
             <div>
               <h4 className="font-bold text-base md:text-lg text-temple-gold">
-                அருள்மிகு ஸ்ரீ முனியப்பன் சுவாமி திருக்கோவில்
+                {t('templeName')}
               </h4>
               <p className="text-xs text-slate-300">
                 9வது வார்டு, அண்ணாநகர், கீரிப்பட்டி கிராமம், சேலம் மாவட்டம்
@@ -45,7 +47,7 @@ const About = () => {
       {/* Intro Section Paragraph */}
       <div className="max-w-4xl mx-auto bg-white dark:bg-slate-900 border border-slate-150 dark:border-slate-800 p-6 md:p-8 rounded-3xl shadow-sm space-y-3">
         <h2 className="text-xl md:text-2xl font-bold font-serif text-temple-maroon dark:text-temple-gold border-b border-slate-100 dark:border-slate-850 pb-2">
-          அருள்மிகு ஸ்ரீ முனியப்பன் சுவாமி வரலாறு
+          {t('templeName')}
         </h2>
         <p className="text-slate-700 dark:text-slate-350 text-[15px] md:text-base leading-relaxed">
           அருள்மிகு ஸ்ரீ முனியப்பன் சுவாமி தமிழ்நாட்டின் கிராமப்புறங்களில் போற்றப்படும் காவல் தெய்வமாக விளங்குகிறார். கிராம எல்லைகளில் நின்று தீய சக்திகளிடமிருந்தும் பேரிடர்களிலிருந்தும் மக்களைக் காத்து, தர்மத்தை நிலைநாட்டும் மாபெரும் காவல் தெய்வமாக இன்று வரை மக்களால் பக்தியுடன் வழிபடப்பட்டு வருகிறார்.
