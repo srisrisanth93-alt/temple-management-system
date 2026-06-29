@@ -21,7 +21,7 @@ export const translations = {
     themeDark: "Dark Mode",
 
     // Home Page
-    templeName: "அருள்மிகு ஸ்ரீ முனியப்பன் திருக்கோவில்",
+    templeName: "அருள்மிகு ஸ்ரீ பராசக்தி அம்மன் மற்றும் ஸ்ரீ முனியப்பன் சுவாமி திருக்கோவில்",
     templeSubtitle: "A Sacred Abode of Protection, Peace and Divine Blessings",
     welcomeHeader: "Welcome to Sri Muniyappan Temple",
     welcomeText: "Experience the divine grace and tranquil ambiance of our heritage temple. Established with historical significance, the temple serves as a spiritual beacon for thousands of devotees seeking the protection and blessings of Lord Munniyappan.",
@@ -37,7 +37,7 @@ export const translations = {
     emailLabel: "Email",
     readMore: "Read More",
     pinned: "Pinned",
-    templeAddress: "Sri Muniyappan Temple, 9th Ward, Annangar, Keeripatti Village, Attur Taluk, Salem District, Tamil Nadu – 636107, India.",
+    templeAddress: "Arulmigu Sri Parasakthi Amman and Sri Muniyappan Swamy Temple, 9th Ward, Annangar, Keeripatti Village, Attur Taluk, Salem District, Tamil Nadu – 636107, India.",
 
     // About Page
     aboutHeader: "About Our Temple",
@@ -166,7 +166,7 @@ export const translations = {
     themeDark: "இரவு வடிவம்",
 
     // Home Page
-    templeName: "அருள்மிகு ஸ்ரீ முனியப்பன் திருக்கோவில்",
+    templeName: "அருள்மிகு ஸ்ரீ பராசக்தி அம்மன் மற்றும் ஸ்ரீ முனியப்பன் சுவாமி திருக்கோவில்",
     templeSubtitle: "பாதுகாப்பு, அமைதி மற்றும் தெய்வீக அருளின் புனித இருப்பிடம்",
     welcomeHeader: "ஸ்ரீ முனியப்பன் திருக்கோவிலுக்கு உங்களை வரவேற்கிறோம்",
     welcomeText: "நமது பாரம்பரிய கோவிலின் தெய்வீக அருளையும் அமைதியான சூழலையும் அனுபவியுங்கள். வரலாற்று முக்கியத்துவம் வாய்ந்த இக்கோவில், ஸ்ரீ முனியப்பனின் பாதுகாப்பு மற்றும் ஆசிகளை நாடி வரும் ஆயிரக்கணக்கான பக்தர்களுக்கு ஆன்மீக புகலிடமாக விளங்குகிறது.",
@@ -182,7 +182,7 @@ export const translations = {
     emailLabel: "மின்னஞ்சல்",
     readMore: "மேலும் படிக்க",
     pinned: "முக்கியமானது",
-    templeAddress: "ஸ்ரீ முனியப்பன் திருக்கோவில், 9வது வார்டு, அண்ணாநகர், கீரிப்பட்டி கிராமம், ஆத்தூர் வட்டம், சேலம் மாவட்டம், தமிழ்நாடு – 636107, இந்தியா.",
+    templeAddress: "அருள்மிகு ஸ்ரீ பராசக்தி அம்மன் மற்றும் ஸ்ரீ முனியப்பன் சுவாமி திருக்கோவில், 9வது வார்டு, அண்ணாநகர், கீரிப்பட்டி கிராமம், ஆத்தூர் வட்டம், சேலம் மாவட்டம், தமிழ்நாடு – 636107, இந்தியா.",
 
     // About Page
     aboutHeader: "எங்கள் கோவில் பற்றி",

@@ -38,11 +38,23 @@ const FloatingLanguageToggle = () => {
 };
 
 const AppContent = () => {
+  const { language } = useLanguage();
+
   return (
     <Router>
       <div className="min-h-screen flex flex-col justify-between bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 transition-colors duration-300">
         {/* Header / Navbar */}
         <Navbar />
+
+        {/* Scrolling Announcement Ticker */}
+        <div className="bg-gradient-to-r from-amber-500 via-temple-saffron to-temple-gold text-slate-950 font-serif font-bold text-[14px] md:text-[15px] py-1.5 border-b border-temple-gold/30 shadow-inner select-none flex items-center">
+          <marquee behavior="scroll" direction="left" scrollamount="5" className="w-full">
+            {language === 'en'
+              ? "✦ Special pooja will be held every Friday. All devotees are cordially invited to participate. ✦"
+              : "✦ ஒவ்வொரு வெள்ளிக்கிழமையும் சிறப்பு பூஜை நடைபெறும். அனைத்து பக்தர்களும் கலந்து கொள்ள அன்புடன் அழைக்கப்படுகிறார்கள். ✦"
+            }
+          </marquee>
+        </div>
 
         {/* Main Stage */}
         <main className="flex-grow">
