@@ -42,28 +42,32 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/" className="hover:text-temple-gold transition-colors block py-0.5">
+                <Link to="/" className="hover:text-[#cca43b] transition-colors block py-0.5">
                   {t('navHome')}
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-temple-gold transition-colors block py-0.5">
+                <Link to="/about" className="hover:text-[#cca43b] transition-colors block py-0.5">
                   {t('navAbout')}
                 </Link>
               </li>
               <li>
-                <Link to="/pooja-festivals" className="hover:text-temple-gold transition-colors block py-0.5">
+                <Link to="/pooja" className="hover:text-[#cca43b] transition-colors block py-0.5">
+                  {t('navPoojaOnly')}
+                </Link>
+              </li>
+              <li>
+                <Link to="/pooja-festivals" className="hover:text-[#cca43b] transition-colors block py-0.5">
                   {t('navPooja')}
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" className="hover:text-temple-gold transition-colors block py-0.5">
+                <Link to="/gallery" className="hover:text-[#cca43b] transition-colors block py-0.5">
                   {t('navGallery')}
                 </Link>
               </li>
-
               <li>
-                <Link to="/contact" className="hover:text-temple-gold transition-colors block py-0.5">
+                <Link to="/contact" className="hover:text-[#cca43b] transition-colors block py-0.5">
                   {t('navContact')}
                 </Link>
               </li>
