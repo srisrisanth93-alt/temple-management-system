@@ -1,0 +1,82 @@
+import React from 'react';
+import { Sparkles, ShieldCheck } from 'lucide-react';
+
+const About = () => {
+  const historyPointsTA = [
+    "முனியப்பன் சாமி தமிழ்நாட்டின் கிராமப்புறங்களில் வழிபடப்படும் சக்தி வாய்ந்த காவல் தெய்வமாக கருதப்படுகிறார்.",
+    "கிராம மக்களை தீய சக்திகள் மற்றும் இயற்கை பேரிடர்களிலிருந்து காப்பவர் என்று நம்பப்படுகிறது.",
+    "முனியப்பன் சாமி நீதியையும் தர்மத்தையும் காக்கும் தெய்வமாக போற்றப்படுகிறார்.",
+    "கிராம எல்லைகளில் முனியப்பன் கோவில்கள் அதிகமாக அமைக்கப்பட்டுள்ளன.",
+    "பக்தர்களின் வேண்டுதல்களை நிறைவேற்றும் அருள்மிகு தெய்வமாக மக்கள் நம்பிக்கை கொண்டுள்ளனர்.",
+    "விவசாயம் செழிக்கவும், மழை பொழியவும் முனியப்பன் சாமியிடம் பிரார்த்தனை செய்யும் வழக்கம் உள்ளது.",
+    "ஆண்டுதோறும் சிறப்பு பூஜைகள் மற்றும் திருவிழாக்கள் சிறப்பாக நடத்தப்படுகின்றன.",
+    "வெள்ளிக்கிழமைகளிலும், அமாவாசை நாட்களிலும் பக்தர்கள் அதிக அளவில் வழிபாடு செய்கின்றனர்.",
+    "முனியப்பன் சாமி பக்தர்களுக்கு தைரியம், நம்பிக்கை மற்றும் பாதுகாப்பை அளிப்பவர் என கருதப்படுகிறார்.",
+    "அதனால் முனியப்பன் சாமி தமிழர் பாரம்பரியத்தின் முக்கியமான காவல் தெய்வங்களில் ஒருவராக இன்று வரை பக்தியுடன் வழிபடப்பட்டு வருகிறார். 🙏🛕"
+  ];
+
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+      {/* Deity Image Card */}
+      <div className="max-w-4xl mx-auto relative group">
+        <div className="absolute inset-0 bg-gradient-to-r from-temple-saffron to-temple-gold rounded-3xl blur-md opacity-25 -m-1" />
+        <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 p-3 rounded-3xl shadow-xl overflow-hidden">
+          <img 
+            src="/temple_hero_banner.jpg" 
+            alt="Arulmigu Sri Muniyappan Deities" 
+            className="w-full h-64 md:h-[400px] object-cover rounded-2xl shadow"
+          />
+          <div className="absolute bottom-6 left-6 right-6 bg-slate-950/80 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/10 text-white flex items-center gap-3">
+            <div className="bg-gradient-to-r from-temple-gold to-temple-saffron text-slate-950 p-2.5 rounded-xl">
+              <ShieldCheck className="w-6 h-6" />
+            </div>
+            <div>
+              <h4 className="font-bold text-base md:text-lg text-temple-gold">
+                அருள்மிகு ஸ்ரீ முனியப்பன் சுவாமி திருக்கோவில்
+              </h4>
+              <p className="text-xs text-slate-300">
+                9வது வார்டு, அண்ணாநகர், கீரிப்பட்டி கிராமம், சேலம் மாவட்டம்
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Intro Section Paragraph */}
+      <div className="max-w-4xl mx-auto bg-white dark:bg-slate-900 border border-slate-150 dark:border-slate-800 p-6 md:p-8 rounded-3xl shadow-sm space-y-3">
+        <h2 className="text-xl md:text-2xl font-bold font-serif text-temple-maroon dark:text-temple-gold border-b border-slate-100 dark:border-slate-850 pb-2">
+          அருள்மிகு ஸ்ரீ முனியப்பன் சுவாமி வரலாறு
+        </h2>
+        <p className="text-slate-700 dark:text-slate-350 text-[15px] md:text-base leading-relaxed">
+          அருள்மிகு ஸ்ரீ முனியப்பன் சுவாமி தமிழ்நாட்டின் கிராமப்புறங்களில் போற்றப்படும் காவல் தெய்வமாக விளங்குகிறார். கிராம எல்லைகளில் நின்று தீய சக்திகளிடமிருந்தும் பேரிடர்களிலிருந்தும் மக்களைக் காத்து, தர்மத்தை நிலைநாட்டும் மாபெரும் காவல் தெய்வமாக இன்று வரை மக்களால் பக்தியுடன் வழிபடப்பட்டு வருகிறார்.
+        </p>
+      </div>
+
+      {/* History 10 Points List */}
+      <div className="max-w-4xl mx-auto space-y-6">
+        <h3 className="text-xl md:text-2xl font-bold font-serif text-slate-800 dark:text-white flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+          <Sparkles className="w-5 h-5 text-temple-saffron" />
+          முனியப்பன் சாமி வரலாறு (10 வரிகள்)
+        </h3>
+        
+        <div className="grid grid-cols-1 gap-4">
+          {historyPointsTA.map((point, index) => (
+            <div 
+              key={index} 
+              className="bg-white dark:bg-slate-900 border border-slate-150/70 dark:border-slate-850 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all flex items-start gap-4 hover:border-temple-gold/40"
+            >
+              <div className="bg-gradient-to-br from-temple-maroon to-temple-maroonLight text-white font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+                {index + 1}
+              </div>
+              <p className="text-slate-700 dark:text-slate-350 text-[15px] md:text-base leading-relaxed">
+                {point}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default About;
