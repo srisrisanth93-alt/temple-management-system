@@ -98,11 +98,11 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {/* Parasakthi Stuthi */}
+            {/* Parvathi Stuthi */}
             <div className="bg-white dark:bg-slate-900 border border-slate-150 dark:border-slate-800 p-6 rounded-2xl shadow-sm text-center relative overflow-hidden flex flex-col justify-center min-h-[170px]">
               <div className="absolute top-3 left-3 text-amber-500/15 text-4xl font-serif">❝</div>
               <h4 className="font-bold font-serif text-temple-maroon dark:text-temple-gold text-base md:text-lg mb-3">
-                ஸ்ரீ பராசக்தி ஸ்துதி
+                ஸ்ரீ பார்வதி ஸ்துதி
               </h4>
               <p className="text-slate-700 dark:text-slate-350 italic font-serif leading-relaxed text-[14px] md:text-[15px] px-2">
                 அன்னையாய் வந்து காக்கும் அபிராமி தாயே போற்றி ! உண்மையாய் எந்த ஒளியே போற்றி ! உலகின் தாயே போற்றி ! முன்னவள் முக்கட் செல்வம் முறுவலில் மகிழும் காளி ! இன்னருள் தருவாய் போற்றி ஏசுநாயகியே போற்றி ! போற்றி !!
