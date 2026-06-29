@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tourmaline-tiramisu-830675.netlify.app/sitemap.xml
