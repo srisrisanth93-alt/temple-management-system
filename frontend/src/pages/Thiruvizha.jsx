@@ -57,7 +57,7 @@ const Thiruvizha = () => {
           </div>
           
           <h1 className="text-xl md:text-3xl font-serif font-extrabold text-[#4a080a] tracking-wide leading-snug">
-            அருள்மிகு ஸ்ரீ பார்வதி அம்மன் மற்றும் ஸ்ரீ முனியப்பன் சுவாமி திருக்கோவில்
+            அருள்மிகு ஸ்ரீ பராசக்தி அம்மன் மற்றும் ஸ்ரீ முனியப்பன் சுவாமி திருக்கோவில்
           </h1>
           <p className="text-xs md:text-sm font-bold tracking-widest text-[#cca43b] uppercase">
             9வது வார்டு, அண்ணாநகர், கீரிப்பட்டி கிராமம், சேலம் மாவட்டம்
@@ -196,7 +196,7 @@ const Thiruvizha = () => {
 
         {/* Notice Board Footer */}
         <div className="text-center pt-6 border-t-2 border-dashed border-[#cca43b]/40 text-[#4a080a] font-serif font-bold text-xs md:text-sm tracking-wider leading-relaxed">
-          ✦ அனைவரும் வருக! அருள்மிகு ஸ்ரீ பார்வதி அம்மன் & ஸ்ரீ முனியப்பன் சுவாமி அருள் பெறுக! ✦
+          ✦ அனைவரும் வருக! அருள்மிகு ஸ்ரீ பராசக்தி அம்மன் & ஸ்ரீ முனியப்பன் சுவாமி அருள் பெறுக! ✦
         </div>
 
       </div>

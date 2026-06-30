@@ -401,7 +401,7 @@ const Home = () => {
             <div className="bg-[#3d0608] border border-[#cca43b]/20 p-6 rounded-2xl shadow-inner text-center relative overflow-hidden flex flex-col justify-center min-h-[170px]">
               <div className="absolute top-3 left-3 text-[#cca43b]/10 text-4xl font-serif">❝</div>
               <h4 className="font-bold font-serif text-[#cca43b] text-base md:text-lg mb-3">
-                ஸ்ரீ பார்வதி ஸ்துதி
+                ஸ்ரீ பாரதி ஸ்துதி
               </h4>
               <p className="text-stone-300 italic font-serif leading-relaxed text-[14px] md:text-[15px] px-2">
                 அன்னையாய் வந்து காக்கும் அபிராமி தாயே போற்றி ! உண்மையாய் எந்த ஒளியே போற்றி ! உலகின் தாயே போற்றி ! முன்னவள் முக்கட் செல்வம் முறுவலில் மகிழும் காளி ! இன்னருள் தருவாய் போற்றி ஏசுநாயகியே போற்றி ! போற்றி !!
