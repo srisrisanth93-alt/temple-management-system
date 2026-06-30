@@ -91,43 +91,9 @@ const Pooja = () => {
           </div>
         </div>
 
-        {/* Pricing List & Form Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          {/* Left Column: Pricing List (7/12) */}
-          <div className="lg:col-span-7 bg-white dark:bg-slate-900 border border-[#cca43b]/20 p-6 md:p-8 rounded-3xl shadow-sm space-y-6">
-            <div className="border-b border-stone-100 dark:border-stone-850 pb-3 flex items-center gap-2">
-              <ClipboardCheck className="w-5 h-5 text-[#cca43b]" />
-              <h3 className="text-xl font-serif font-bold text-[#4a080a] dark:text-[#cca43b]">
-                {language === 'en' ? 'Pooja Rates' : 'பூஜை கட்டணங்கள்'}
-              </h3>
-            </div>
-
-            <div className="space-y-4">
-              {poojaPrices.map((pooja, index) => (
-                <div 
-                  key={index}
-                  className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 rounded-xl border border-stone-100 dark:border-stone-850 bg-stone-50/50 dark:bg-slate-950/20 hover:border-[#cca43b]/30 transition-all gap-2"
-                >
-                  <div className="space-y-1">
-                    <h4 className="font-bold text-[#4a080a] dark:text-white text-base">
-                      {language === 'en' ? pooja.nameEN : pooja.nameTA}
-                    </h4>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">
-                      {language === 'en' ? pooja.descEN : pooja.descTA}
-                    </p>
-                  </div>
-                  <div className="bg-[#4a080a] text-[#cca43b] border border-[#cca43b]/30 px-4 py-1.5 rounded-lg font-bold text-sm shrink-0 self-end sm:self-center">
-                    {pooja.price}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Column: Interactive Booking Form (5/12) */}
-          <div className="lg:col-span-5">
-            {!submitted ? (
+        {/* Form Container */}
+        <div className="max-w-2xl mx-auto w-full">
+          {!submitted ? (
               <form 
                 onSubmit={handleSubmit}
                 className="bg-white dark:bg-slate-900 border border-[#cca43b]/20 p-6 md:p-8 rounded-3xl shadow-sm space-y-5"
@@ -306,8 +272,6 @@ const Pooja = () => {
               </div>
             )}
           </div>
-
-        </div>
 
       </div>
     </div>
