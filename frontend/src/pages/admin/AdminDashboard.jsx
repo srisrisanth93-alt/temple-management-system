@@ -6,6 +6,7 @@ import { apiCall } from '../../utils/api';
 // Subcomponents
 import AnnouncementsManager from '../../components/admin/AnnouncementsManager';
 import FestivalsManager from '../../components/admin/FestivalsManager';
+import FestivalScheduleManager from '../../components/admin/FestivalScheduleManager';
 import GalleryManager from '../../components/admin/GalleryManager';
 import DonationsLog from '../../components/admin/DonationsLog';
 import MessagesLog from '../../components/admin/MessagesLog';
@@ -75,6 +76,7 @@ const AdminDashboard = () => {
     { id: 'overview', name: 'Overview', icon: <BarChart className="w-4 h-4" /> },
     { id: 'announcements', name: 'Announcements', icon: <Megaphone className="w-4 h-4" /> },
     { id: 'festivals', name: 'Festivals & Poojas', icon: <Calendar className="w-4 h-4" /> },
+    { id: 'schedules', name: 'Festival Schedule', icon: <Calendar className="w-4 h-4" /> },
     { id: 'gallery', name: 'Gallery Media', icon: <Image className="w-4 h-4" /> },
     { id: 'donations', name: 'Donations Log', icon: <Heart className="w-4 h-4" /> },
     { id: 'messages', name: 'Contact Inquiries', icon: <Mail className="w-4 h-4" /> },
@@ -188,6 +190,7 @@ const AdminDashboard = () => {
 
         {activeTab === 'announcements' && <AnnouncementsManager />}
         {activeTab === 'festivals' && <FestivalsManager />}
+        {activeTab === 'schedules' && <FestivalScheduleManager />}
         {activeTab === 'gallery' && <GalleryManager />}
         {activeTab === 'donations' && <DonationsLog />}
         {activeTab === 'messages' && <MessagesLog />}

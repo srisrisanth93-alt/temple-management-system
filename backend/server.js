@@ -12,6 +12,8 @@ const festivalRoutes = require('./routes/festivalRoutes');
 const galleryRoutes = require('./routes/galleryRoutes');
 const donationRoutes = require('./routes/donationRoutes');
 const contactRoutes = require('./routes/contactRoutes');
+const festivalScheduleRoutes = require('./routes/festivalScheduleRoutes');
+const { seedFestivalSchedules } = require('./controllers/festivalScheduleController');
 
 // Load env vars
 dotenv.config();
@@ -20,6 +22,7 @@ dotenv.config();
 connectDB().then(() => {
   // Seed admin if database connection is successful
   seedAdmin();
+  seedFestivalSchedules();
 });
 
 const app = express();
@@ -41,6 +44,7 @@ app.use('/api/festivals', festivalRoutes);
 app.use('/api/gallery', galleryRoutes);
 app.use('/api/donations', donationRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/festival-schedules', festivalScheduleRoutes);
 
 // Simple root route
 app.get('/', (req, res) => {
