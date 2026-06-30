@@ -16,7 +16,7 @@ const Pooja = () => {
             <span>Divine Timing</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-serif font-bold text-[#4a080a] dark:text-[#cca43b]">
-            {language === 'en' ? 'Pooja' : 'பூஜை வழிபாடுகள்'}
+            {language === 'en' ? 'Poojai' : 'பூஜை வழிபாடுகள்'}
           </h1>
           <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-[#cca43b] to-transparent mx-auto mt-2" />
         </div>
