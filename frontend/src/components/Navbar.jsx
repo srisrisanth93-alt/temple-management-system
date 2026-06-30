@@ -27,7 +27,7 @@ const Navbar = () => {
     { name: language === 'en' ? 'HOME' : 'முகப்பு', path: '/' },
     { name: language === 'en' ? 'ABOUT TEMPLE' : 'கோவில் பற்றி', path: '/about' },
     { name: language === 'en' ? 'POOJAI' : 'பூஜை', path: '/pooja' },
-    { name: language === 'en' ? 'FESTIVAL' : 'திருவிழா', path: '/pooja-festivals' },
+    { name: language === 'en' ? 'FESTIVAL' : 'திருவிழா', path: '/thiruvizha' },
     { name: language === 'en' ? 'GALLERY' : 'புகைப்படங்கள்', path: '/gallery' },
     { name: language === 'en' ? 'CONTACT' : 'தொடர்புக்கு', path: '/contact' },
   ];

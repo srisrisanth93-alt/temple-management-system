@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import PoojaFestival from './pages/PoojaFestival';
 import Pooja from './pages/Pooja';
+import Thiruvizha from './pages/Thiruvizha';
 import Gallery from './pages/Gallery';
 import Donations from './pages/Donations';
 import Contact from './pages/Contact';
@@ -63,6 +64,7 @@ const AppContent = () => {
             <Route path="/about" element={<About />} />
             <Route path="/pooja" element={<Pooja />} />
             <Route path="/pooja-festivals" element={<PoojaFestival />} />
+            <Route path="/thiruvizha" element={<Thiruvizha />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
             

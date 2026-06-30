@@ -147,7 +147,7 @@ const Home = () => {
           </Link>
 
           {/* Link 2: Festival */}
-          <Link to="/pooja-festivals" className="p-6 flex flex-col items-center text-center group hover:bg-[#3d0608] transition-colors">
+          <Link to="/thiruvizha" className="p-6 flex flex-col items-center text-center group hover:bg-[#3d0608] transition-colors">
             <Calendar className="w-8 h-8 text-[#cca43b] mb-2.5 group-hover:scale-105 transition-transform" />
             <h4 className="font-serif font-bold text-white text-[13px] tracking-wider uppercase">FESTIVAL</h4>
             <p className="text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Event & Celebration</p>
@@ -289,7 +289,7 @@ const Home = () => {
               </p>
 
               <Link 
-                to="/pooja-festivals"
+                to="/thiruvizha"
                 className="px-6 py-2.5 bg-[#4a080a] hover:bg-[#6e0d10] text-white font-bold rounded text-[10px] uppercase tracking-widest transition-colors shadow-sm"
               >
                 VIEW DETAILS

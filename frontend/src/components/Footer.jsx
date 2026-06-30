@@ -57,7 +57,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/pooja-festivals" className="hover:text-[#cca43b] transition-colors block py-0.5">
+                <Link to="/thiruvizha" className="hover:text-[#cca43b] transition-colors block py-0.5">
                   {t('navPooja')}
                 </Link>
               </li>
