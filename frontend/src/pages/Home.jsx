@@ -301,8 +301,7 @@ const Home = () => {
                   <span className="font-semibold text-slate-800 dark:text-white uppercase tracking-wider">Morning</span>
                   <span className="text-[#cca43b] font-bold">06:00 AM - 06:00 PM</span>
                 </div>
-               
-              
+              </div>
             </div>
 
           </div>
