@@ -169,7 +169,7 @@ const Home = () => {
           {/* Link 4: Pooja */}
           <Link to="/pooja" className="p-6 flex flex-col items-center text-center group hover:bg-[#3d0608] transition-colors">
             <Flame className="w-8 h-8 text-[#cca43b] mb-2.5 group-hover:scale-105 transition-transform" />
-            <h4 className="font-serif font-bold text-white text-[13px] tracking-wider uppercase">POOJA</h4>
+            <h4 className="font-serif font-bold text-white text-[13px] tracking-wider uppercase">POOJAI</h4>
             <p className="text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Daily & Special Timings</p>
             <span className="text-[9px] text-[#cca43b] font-bold mt-4 inline-flex items-center gap-0.5 tracking-widest uppercase group-hover:underline">
               READ MORE <ChevronRight className="w-3 h-3" />
@@ -204,7 +204,7 @@ const Home = () => {
               Muniyappan Swamy Temple
             </h2>
             <p className="text-slate-655 dark:text-slate-350 text-[15px] leading-relaxed">
-              Muniyappan Swamy Temple is a divine place of power and blessings. This temple has a rich history and is believed to fulfill the wishes of the devotees. அருள்மிகு ஸ்ரீ பார்வதி அம்மன் மற்றும் ஸ்ரீ முனியப்பன் சுவாமி திருக்கோவில், கீரிப்பட்டி கிராமத்தின் பிரதான காவல் தெய்வமாக அருள் பாலித்து வருகிறது.
+              Muniyappan Swamy Temple is a divine place of power and blessings. This temple has a rich history and is believed to fulfill the wishes of the devotees. அருள்மிகு ஸ்ரீ பராசக்தி அம்மன் மற்றும் ஸ்ரீ முனியப்பன் சுவாமி திருக்கோவில், கீரிப்பட்டி கிராமத்தின் பிரதான காவல் தெய்வமாக அருள் பாலித்து வருகிறது.
             </p>
 
             <div className="pt-2">
@@ -267,16 +267,13 @@ const Home = () => {
                 </div>
               </div>
 
-              <p className="text-xs text-slate-500 italic leading-relaxed">
-                *Countdown ticking down to the grand annual festival launching on 10th September 2025.
-              </p>
             </div>
 
             {/* Col B (Festival Info & Circular image): width 4/12 */}
             <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-[#cca43b]/10 p-8 rounded-2xl shadow-sm flex flex-col items-center justify-between text-center space-y-6">
               <div className="space-y-1">
-                <h4 className="text-lg font-serif font-bold text-[#4a080a] dark:text-[#cca43b]">Annual Festival 2025</h4>
-                <p className="text-[11px] font-bold text-[#cca43b] uppercase tracking-wider">10 Sep 2025 - 16 Sep 2025</p>
+                <h4 className="text-lg font-serif font-bold text-[#4a080a] dark:text-[#cca43b]">திருவிழா</h4>
+                <p className="text-[11px] font-bold text-[#cca43b] uppercase tracking-wider"> Sep 2026-  Sep 2026</p>
               </div>
 
               {/* Circular Deity Image */}
@@ -284,9 +281,6 @@ const Home = () => {
                 <img src="/temple_hero_banner.jpg" alt="Deity Miniature" className="w-full h-full object-cover" />
               </div>
 
-              <p className="text-xs text-slate-600 dark:text-slate-350 leading-relaxed max-w-xs">
-                Join us for the grand annual festival celebrations and receive the divine blessings of Sri Muniyappan Swamy.
-              </p>
 
               <Link 
                 to="/thiruvizha"
@@ -305,23 +299,10 @@ const Home = () => {
               <div className="space-y-3.5 text-xs">
                 <div className="flex justify-between items-center pb-2 border-b border-stone-50 dark:border-stone-850">
                   <span className="font-semibold text-slate-800 dark:text-white uppercase tracking-wider">Morning</span>
-                  <span className="text-[#cca43b] font-bold">05:30 AM - 12:00 PM</span>
+                  <span className="text-[#cca43b] font-bold">06:00 AM - 06:00 PM</span>
                 </div>
-                <div className="flex justify-between items-center pb-2 border-b border-stone-50 dark:border-stone-850">
-                  <span className="font-semibold text-slate-800 dark:text-white uppercase tracking-wider">Evening</span>
-                  <span className="text-[#cca43b] font-bold">04:30 PM - 09:00 PM</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="font-semibold text-slate-800 dark:text-white uppercase tracking-wider">Special Pooja</span>
-                  <span className="text-[#cca43b] font-bold">Friday 06:00 PM</span>
-                </div>
-              </div>
-
-              <div className="bg-amber-50/40 dark:bg-amber-950/5 border-l-2 border-[#cca43b] p-3.5 rounded-r-xl">
-                <p className="text-[10px] text-slate-500 italic leading-relaxed">
-                  *Timings may slightly change during full moon (Pournami) and other special annual ritual days.
-                </p>
-              </div>
+               
+              
             </div>
 
           </div>
