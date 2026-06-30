@@ -16,7 +16,7 @@ const Pooja = () => {
             <span>Divine Timing</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-serif font-bold text-[#4a080a] dark:text-[#cca43b]">
-            {language === 'en' ? 'Pooja Services' : 'பூஜை வழிபாடுகள்'}
+            {language === 'en' ? 'Pooja' : 'பூஜை வழிபாடுகள்'}
           </h1>
           <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-[#cca43b] to-transparent mx-auto mt-2" />
         </div>
@@ -36,7 +36,7 @@ const Pooja = () => {
               <div className="space-y-1">
                 <span className="block text-[10px] text-[#cca43b] font-bold tracking-wider uppercase">Weekly Special Ritual</span>
                 <h3 className="font-serif font-bold text-[#4a080a] dark:text-[#cca43b] text-lg md:text-xl">
-                  வெள்ளிக்கிழமை சிறப்பு பூஜை (Friday Special Pooja)
+                  வெள்ளிக்கிழமை சிறப்பு பூஜை 
                 </h3>
               </div>
               
@@ -60,7 +60,7 @@ const Pooja = () => {
               <div className="space-y-1">
                 <span className="block text-[10px] text-[#cca43b] font-bold tracking-wider uppercase">Monthly Auspicious Event</span>
                 <h3 className="font-serif font-bold text-[#4a080a] dark:text-[#cca43b] text-lg md:text-xl">
-                  பௌர்ணமி சிறப்பு பூஜை (Pournami Special Pooja)
+                  பௌர்ணமி சிறப்பு பூஜை 
                 </h3>
               </div>
               
