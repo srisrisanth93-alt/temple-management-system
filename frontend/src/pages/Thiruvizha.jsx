@@ -4,7 +4,7 @@ import { Printer, Download, Sparkles, Calendar, Clock, BookOpen } from 'lucide-r
 const Thiruvizha = () => {
   const scheduleData = [
     {
-      date: "ஆவணி மாதம் 25-ந் தேதி (10-09-2025) புதன்கிழமை",
+      date: "ஆவணி மாதம் கடைசி புதன்கிழமை",
       time: "அதிகாலை 5:00 மணிக்குமேல் 9:00 மணிக்குள்",
       program: "சுவாமிக்கு காப்பு கட்டுதல், சுவாமிக்கு பூ போடுதல் மற்றும் பால்குடம் எடுப்பவர்களுக்கு காப்பு கட்டுதல்"
     },
