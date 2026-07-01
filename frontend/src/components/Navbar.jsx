@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
-import { Menu, X, Sun, Moon, Globe, ShieldAlert, Phone, Mail, Play } from 'lucide-react';
+import { Menu, X, Sun, Moon, Globe, ShieldAlert, Phone, Mail } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,12 +13,14 @@ const Navbar = () => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
+    // Auth Check
     const token = localStorage.getItem('adminToken');
     setIsAdmin(!!token);
   }, [location]);
 
   const handleLogout = () => {
     localStorage.removeItem('adminToken');
+    localStorage.removeItem('adminUsername');
     setIsAdmin(false);
     navigate('/');
   };
@@ -26,7 +28,6 @@ const Navbar = () => {
   const navItems = [
     { name: language === 'en' ? 'HOME' : 'முகப்பு', path: '/' },
     { name: language === 'en' ? 'ABOUT TEMPLE' : 'கோவில் பற்றி', path: '/about' },
-    { name: language === 'en' ? 'POOJAI' : 'பூஜை', path: '/pooja' },
     { name: language === 'en' ? 'FESTIVAL' : 'திருவிழா', path: '/thiruvizha' },
     { name: language === 'en' ? 'GALLERY' : 'புகைப்படங்கள்', path: '/gallery' },
     { name: language === 'en' ? 'CONTACT' : 'தொடர்புக்கு', path: '/contact' },
@@ -48,37 +49,17 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Right Side: Social links & Live Darshan Button */}
+        {/* Right Side: Social links */}
         <div className="flex items-center gap-5">
           <div className="flex items-center gap-3.5 text-stone-400">
             <span className="text-[11px] sm:text-xs tracking-wider uppercase text-stone-500 font-semibold">Follow Us :</span>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#cca43b] transition-colors">
-              <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                <path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h3V1H13c-2.8 0-5 2.2-5 5v2z" />
-              </svg>
-            </a>
             <a href="https://instagram.com/young_stars_keeripatti" target="_blank" rel="noopener noreferrer" className="hover:text-[#cca43b] transition-colors">
               <svg className="w-3.5 h-3.5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01" />
               </svg>
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#cca43b] transition-colors">
-              <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                <path d="M23.5 6.2c-.3-1.1-1.1-2-2.2-2.3C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.3.4c-1.1.3-1.9 1.2-2.2 2.3-.4 2-.4 6.2-.4 6.2s0 4.2.4 6.2c.3 1.1 1.1 2 2.2 2.3 2 .4 9.3.4 9.3.4s7.3 0 9.3-.4c1.1-.3 1.9-1.2 2.2-2.3.4-2 .4-6.2.4-6.2s0-4.2-.4-6.2zM9.5 15.5V8.5l6.5 3.5-6.5 3.5z" />
-              </svg>
-            </a>
           </div>
-
-          <a 
-            href="https://youtube.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="bg-[#cca43b] hover:bg-[#b08b30] text-slate-950 px-3.5 py-1.5 rounded font-bold text-[10px] sm:text-xs tracking-widest uppercase transition-all flex items-center gap-1"
-          >
-            <Play className="w-3 h-3 fill-current" />
-            Live Darshan
-          </a>
         </div>
       </div>
 
