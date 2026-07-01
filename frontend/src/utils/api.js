@@ -36,6 +36,13 @@ export const apiCall = async (endpoint, options = {}) => {
     const data = await response.json();
     
     if (!response.ok) {
+      if (response.status === 401) {
+        localStorage.removeItem('adminToken');
+        localStorage.removeItem('adminUsername');
+        if (window.location.pathname.startsWith('/admin') && window.location.pathname !== '/admin/login') {
+          window.location.href = '/admin/login';
+        }
+      }
       const err = new Error(data.message || 'Something went wrong');
       err.responsePayload = data;
       throw err;

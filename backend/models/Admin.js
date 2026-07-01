@@ -4,6 +4,17 @@ const bcrypt = require('bcryptjs');
 const AdminSchema = new mongoose.Schema({
   username: {
     type: String,
+    trim: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true,
+    trim: true,
+  },
+  phone: {
+    type: String,
     required: true,
     unique: true,
     trim: true,
@@ -11,6 +22,12 @@ const AdminSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
+  },
+  resetOtp: {
+    type: String,
+  },
+  resetOtpExpires: {
+    type: Date,
   },
 }, {
   timestamps: true,
