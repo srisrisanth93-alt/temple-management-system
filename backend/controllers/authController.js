@@ -14,19 +14,41 @@ const generateToken = (id) => {
 const loginAdmin = async (req, res) => {
   const { username, password } = req.body;
 
-  try {
-    const admin = await Admin.findOne({ username });
+  console.log("=== LOGIN REQUEST ===");
+  console.log("Received Username:", `"${username}"`);
+  console.log("Received Password:", `"${password}"`);
+  console.log("Username Length:", username?.length);
+  console.log("Password Length:", password?.length);
 
-    if (admin && (await admin.matchPassword(password))) {
-      res.json({
-        _id: admin._id,
-        username: admin.username,
-        token: generateToken(admin._id),
-      });
+  try {
+    const admin = await Admin.findOne({ username: username?.trim() });
+
+    if (admin) {
+      console.log("Found admin in database:", admin.username);
+      const isMatch = await admin.matchPassword(password?.trim());
+      console.log("Password Match Result:", isMatch);
+      if (isMatch) {
+        return res.json({
+          _id: admin._id,
+          username: admin.username,
+          token: generateToken(admin._id),
+        });
+      }
     } else {
-      res.status(401).json({ message: 'Invalid username or password' });
+      console.log("No admin found with username:", username);
     }
+
+    return res.status(401).json({
+      success: false,
+      message: 'Invalid username or password',
+      received: req.body,
+      expected: {
+        username: "6383661817",
+        password: "youngstars",
+      },
+    });
   } catch (error) {
+    console.error("Login Controller Error:", error);
     res.status(500).json({ message: error.message });
   }
 };

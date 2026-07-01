@@ -38,6 +38,12 @@ const AdminLogin = () => {
     setLoading(true);
     setErrorMsg('');
 
+    console.log("=== LOGIN DEBUG ===");
+    console.log("Username:", `"${username}"`);
+    console.log("Password:", `"${password}"`);
+    console.log("Username Length:", username.length);
+    console.log("Password Length:", password.length);
+
     try {
       const data = await apiCall('/auth/login', {
         method: 'POST',
@@ -47,6 +53,8 @@ const AdminLogin = () => {
         }),
       });
 
+      console.log("Login Success:", data);
+
       // Save token
       localStorage.setItem('adminToken', data.token);
       localStorage.setItem('adminUsername', data.username);
@@ -54,7 +62,13 @@ const AdminLogin = () => {
       // Redirect to dashboard
       navigate('/admin/dashboard');
     } catch (err) {
-      setErrorMsg(t('loginError'));
+      console.log("=== LOGIN FAILED ===");
+      console.log("Error details:", err);
+      if (err.responsePayload) {
+        console.log("Server Payload:", err.responsePayload);
+        alert("DEBUG INFO FROM SERVER:\n" + JSON.stringify(err.responsePayload, null, 2));
+      }
+      setErrorMsg(err.message || t('loginError'));
     } finally {
       setLoading(false);
     }
