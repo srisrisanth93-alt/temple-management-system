@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
-import { apiCall } from '../../utils/api';
+import { apiCall, API_BASE_URL } from '../../utils/api';
 import { ShieldCheck, Lock, User, RefreshCw } from 'lucide-react';
 
 const AdminLogin = () => {
@@ -141,7 +141,7 @@ const AdminLogin = () => {
           </button>
         </form>
 
-        <div className="border-t border-slate-100 dark:border-slate-850 pt-4 text-center">
+        <div className="border-t border-slate-100 dark:border-slate-850 pt-4 text-center space-y-2">
           <button 
             type="button"
             onClick={handleForceReset}
@@ -151,6 +151,9 @@ const AdminLogin = () => {
               ? "Emergency Reset: Restore admin (6383661817 / youngstars)" 
               : "அவசர மீட்பு: அட்மின் விவரங்களை 6383661817 / youngstars ஆக மாற்று"}
           </button>
+          <div className="text-[9px] text-slate-400 font-mono tracking-tight select-all">
+            API Endpoint: {API_BASE_URL}
+          </div>
         </div>
       </div>
     </div>

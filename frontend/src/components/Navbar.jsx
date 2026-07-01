@@ -42,9 +42,9 @@ const Navbar = () => {
             <Phone className="w-3.5 h-3.5 text-[#cca43b]" />
             <span>+91 98765 43210</span>
           </a>
-          <a href="mailto:info@muniyappantemple.com" className="flex items-center gap-1.5 hover:text-[#cca43b] transition-colors border-l border-stone-800 pl-4">
+          <a href="mailto:muniyappankovil07@gmail.com" className="flex items-center gap-1.5 hover:text-[#cca43b] transition-colors border-l border-stone-800 pl-4">
             <Mail className="w-3.5 h-3.5 text-[#cca43b]" />
-            <span>info@muniyappantemple.com</span>
+            <span>muniyappankovil07@gmail.com</span>
           </a>
         </div>
 
@@ -57,7 +57,7 @@ const Navbar = () => {
                 <path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h3V1H13c-2.8 0-5 2.2-5 5v2z" />
               </svg>
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#cca43b] transition-colors">
+            <a href="https://instagram.com/young_stars_keeripatti" target="_blank" rel="noopener noreferrer" className="hover:text-[#cca43b] transition-colors">
               <svg className="w-3.5 h-3.5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01" />
