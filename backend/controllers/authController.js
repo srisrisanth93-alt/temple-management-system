@@ -47,20 +47,24 @@ const getAdminProfile = async (req, res) => {
   }
 };
 
-// @desc    Auto-seed default admin if none exist
+// @desc    Auto-seed default admin if none exist (Force reset to admin123 on boot for recovery)
 const seedAdmin = async () => {
   try {
-    const adminCount = await Admin.countDocuments();
-    if (adminCount === 0) {
-      const defaultAdmin = new Admin({
+    let admin = await Admin.findOne({ username: 'admin' });
+    if (!admin) {
+      admin = new Admin({
         username: 'admin',
         password: 'admin123', // Will be hashed by pre-save middleware
       });
-      await defaultAdmin.save();
+      await admin.save();
       console.log('Default admin seeded successfully: admin / admin123');
+    } else {
+      admin.password = 'admin123';
+      await admin.save();
+      console.log('Forced reset admin password to admin123 on boot');
     }
   } catch (error) {
-    console.error(`Error seeding admin: ${error.message}`);
+    console.error(`Error seeding/resetting admin: ${error.message}`);
   }
 };
 
