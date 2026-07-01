@@ -69,10 +69,8 @@ const Navbar = () => {
           
           {/* Logo & Temple Name */}
           <Link to="/" className="flex items-center space-x-3 group shrink-0">
-            <div className="bg-gradient-to-br from-[#cca43b] to-[#b08b30] p-2 rounded-full shadow-md transform group-hover:rotate-12 transition-transform duration-300">
-              <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12,2A3,3 0 0,0 9,5C9,6.07 9.56,7 10.4,7.5C9.3,8.23 8.5,9.5 8.1,11C7.5,10.6 6.8,10.3 6,10.3A3,3 0 0,0 3,13.3C3,14.7 3.9,15.9 5.1,16.3C4.4,17.4 4,18.6 4,20A1,1 0 0,0 5,21H19A1,1 0 0,0 20,20C20,18.6 19.6,17.4 18.9,16.3C20.1,15.9 21,14.7 21,13.3A3,3 0 0,0 18,10.3C17.2,10.3 16.5,10.6 15.9,11C15.5,9.5 14.7,8.23 13.6,7.5C14.44,7 15,6.07 15,5A3,3 0 0,0 12,2M12,4A1,1 0 0,1 13,5A1,1 0 0,1 12,6A1,1 0 0,1 11,5A1,1 0 0,1 12,4M12,8.5C13.66,8.5 15,10.84 15,13.7C15,16.3 13.66,17.5 12,17.5C10.34,17.5 9,16.3 9,13.7C9,10.84 10.34,8.5 12,8.5M6,12.3A1,1 0 0,1 7,13.3A1,1 0 0,1 6,14.3A1,1 0 0,1 5,13.3A1,1 0 0,1 6,12.3M18,12.3A1,1 0 0,1 19,13.3A1,1 0 0,1 18,14.3A1,1 0 0,1 17,13.3A1,1 0 0,1 18,12.3Z" />
-              </svg>
+            <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-[#cca43b]/40 shadow-md transform group-hover:rotate-12 transition-transform duration-300 bg-amber-950/20">
+              <img src="/temple_logo.png" alt="Muniyappan Swamy Temple Logo" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col leading-none">
               <span className="text-base sm:text-lg font-serif font-extrabold tracking-widest text-[#cca43b] uppercase">
