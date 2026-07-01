@@ -47,21 +47,24 @@ const getAdminProfile = async (req, res) => {
   }
 };
 
-// @desc    Auto-seed default admin if none exist (Force reset to admin123 on boot for recovery)
+// @desc    Auto-seed default admin if none exist (Force reset to user phone/pass for recovery)
 const seedAdmin = async () => {
   try {
-    let admin = await Admin.findOne({ username: 'admin' });
+    // Delete any old admin records (like username 'admin') to ensure ONLY ONE admin exists
+    await Admin.deleteMany({ username: { $ne: '6383661817' } });
+
+    let admin = await Admin.findOne({ username: '6383661817' });
     if (!admin) {
       admin = new Admin({
-        username: 'admin',
-        password: 'admin123', // Will be hashed by pre-save middleware
+        username: '6383661817',
+        password: 'youngstars', // Will be hashed by pre-save middleware
       });
       await admin.save();
-      console.log('Default admin seeded successfully: admin / admin123');
+      console.log('Default admin seeded successfully: 6383661817 / youngstars');
     } else {
-      admin.password = 'admin123';
+      admin.password = 'youngstars';
       await admin.save();
-      console.log('Forced reset admin password to admin123 on boot');
+      console.log('Forced reset admin password to youngstars on boot');
     }
   } catch (error) {
     console.error(`Error seeding/resetting admin: ${error.message}`);
@@ -91,18 +94,21 @@ const updateAdminPassword = async (req, res) => {
 
 const forceResetDbNow = async (req, res) => {
   try {
-    let admin = await Admin.findOne({ username: 'admin' });
+    // Delete any old admin records to ensure ONLY ONE admin exists
+    await Admin.deleteMany({ username: { $ne: '6383661817' } });
+
+    let admin = await Admin.findOne({ username: '6383661817' });
     if (!admin) {
       admin = new Admin({
-        username: 'admin',
-        password: 'admin123',
+        username: '6383661817',
+        password: 'youngstars',
       });
       await admin.save();
     } else {
-      admin.password = 'admin123';
+      admin.password = 'youngstars';
       await admin.save();
     }
-    res.json({ message: 'Live database admin password successfully reset to admin123' });
+    res.json({ message: 'Live database admin successfully reset to 6383661817 / youngstars!' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
