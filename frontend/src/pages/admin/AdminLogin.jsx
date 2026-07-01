@@ -141,8 +141,8 @@ const AdminLogin = () => {
             className="text-xs text-slate-500 hover:text-temple-gold transition underline cursor-pointer italic font-semibold"
           >
             {language === 'en' 
-              ? "Emergency Reset: Restore default admin / admin123" 
-              : "அவசர மீட்பு: அட்மின் விவரங்களை admin / admin123 ஆக மாற்று"}
+              ? "Emergency Reset: Restore admin (6383661817 / youngstars)" 
+              : "அவசர மீட்பு: அட்மின் விவரங்களை 6383661817 / youngstars ஆக மாற்று"}
           </button>
         </div>
       </div>
