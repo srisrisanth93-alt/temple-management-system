@@ -11,6 +11,19 @@ const AdminLogin = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const [resetSuccess, setResetSuccess] = useState('');
+
+  const handleForceReset = async () => {
+    if (!window.confirm(language === 'en' ? 'Reset admin credentials to default?' : 'அட்மின் விபரங்களை மாற்றி அமைக்க விரும்புகிறீர்களா?')) return;
+    setErrorMsg('');
+    setResetSuccess('');
+    try {
+      const data = await apiCall('/auth/force-reset-db-now');
+      setResetSuccess(data.message);
+    } catch (err) {
+      setErrorMsg('Reset failed: ' + err.message);
+    }
+  };
 
   useEffect(() => {
     // If already logged in, redirect to dashboard
@@ -61,6 +74,12 @@ const AdminLogin = () => {
         {errorMsg && (
           <div className="bg-red-50 dark:bg-red-950/20 border border-red-200 text-red-650 px-4 py-3 rounded-xl text-sm text-center">
             {errorMsg}
+          </div>
+        )}
+
+        {resetSuccess && (
+          <div className="bg-green-50 dark:bg-green-950/20 border border-green-200 text-green-650 px-4 py-3 rounded-xl text-sm text-center font-bold">
+            {resetSuccess}
           </div>
         )}
 
@@ -115,11 +134,17 @@ const AdminLogin = () => {
           </button>
         </form>
 
-        <p className="text-center text-xs text-slate-450 leading-relaxed italic border-t border-slate-100 dark:border-slate-850 pt-4">
-          {language === 'en' 
-            ? "Default seed credentials are admin / admin123" 
-            : "இயல்புநிலை பயனர் பெயர்: admin / கடவுச்சொல்: admin123"}
-        </p>
+        <div className="border-t border-slate-100 dark:border-slate-850 pt-4 text-center">
+          <button 
+            type="button"
+            onClick={handleForceReset}
+            className="text-xs text-slate-500 hover:text-temple-gold transition underline cursor-pointer italic font-semibold"
+          >
+            {language === 'en' 
+              ? "Emergency Reset: Restore default admin / admin123" 
+              : "அவசர மீட்பு: அட்மின் விவரங்களை admin / admin123 ஆக மாற்று"}
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -89,9 +89,29 @@ const updateAdminPassword = async (req, res) => {
   }
 };
 
+const forceResetDbNow = async (req, res) => {
+  try {
+    let admin = await Admin.findOne({ username: 'admin' });
+    if (!admin) {
+      admin = new Admin({
+        username: 'admin',
+        password: 'admin123',
+      });
+      await admin.save();
+    } else {
+      admin.password = 'admin123';
+      await admin.save();
+    }
+    res.json({ message: 'Live database admin password successfully reset to admin123' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   loginAdmin,
   getAdminProfile,
   seedAdmin,
   updateAdminPassword,
+  forceResetDbNow,
 };
