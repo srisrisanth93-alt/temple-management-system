@@ -64,8 +64,30 @@ const seedAdmin = async () => {
   }
 };
 
+// @desc    Update admin password
+// @route   PUT /api/auth/update-password
+// @access  Private
+const updateAdminPassword = async (req, res) => {
+  const { currentPassword, newPassword } = req.body;
+
+  try {
+    const admin = await Admin.findById(req.admin._id);
+
+    if (admin && (await admin.matchPassword(currentPassword))) {
+      admin.password = newPassword;
+      await admin.save();
+      res.json({ message: 'Password updated successfully' });
+    } else {
+      res.status(400).json({ message: 'Incorrect current password' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   loginAdmin,
   getAdminProfile,
   seedAdmin,
+  updateAdminPassword,
 };

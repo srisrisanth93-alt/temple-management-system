@@ -10,9 +10,11 @@ import FestivalScheduleManager from '../../components/admin/FestivalScheduleMana
 import GalleryManager from '../../components/admin/GalleryManager';
 import DonationsLog from '../../components/admin/DonationsLog';
 import MessagesLog from '../../components/admin/MessagesLog';
+import HeroSlideManager from '../../components/admin/HeroSlideManager';
+import HistoryManager from '../../components/admin/HistoryManager';
 
 // Icons
-import { Megaphone, Calendar, Image, Heart, Mail, LogOut, Grid, ShieldAlert, BarChart } from 'lucide-react';
+import { Megaphone, Calendar, Image, Heart, Mail, LogOut, Grid, ShieldAlert, BarChart, BookOpen } from 'lucide-react';
 
 const AdminDashboard = () => {
   const { language, t } = useLanguage();
@@ -27,6 +29,31 @@ const AdminDashboard = () => {
   });
   const [loadingStats, setLoadingStats] = useState(true);
   const [adminUser, setAdminUser] = useState('Admin');
+  
+  // Password Change States
+  const [passwords, setPasswords] = useState({ currentPassword: '', newPassword: '' });
+  const [passError, setPassError] = useState('');
+  const [passSuccess, setPassSuccess] = useState('');
+  const [passLoading, setPassLoading] = useState(false);
+
+  const handlePasswordChange = async (e) => {
+    e.preventDefault();
+    setPassLoading(true);
+    setPassError('');
+    setPassSuccess('');
+    try {
+      await apiCall('/auth/update-password', {
+        method: 'PUT',
+        body: JSON.stringify(passwords)
+      });
+      setPassSuccess(language === 'en' ? 'Password updated successfully!' : 'கடவுச்சொல் வெற்றிகரமாக மாற்றப்பட்டது!');
+      setPasswords({ currentPassword: '', newPassword: '' });
+    } catch (err) {
+      setPassError(err.message || 'Failed to update password');
+    } finally {
+      setPassLoading(false);
+    }
+  };
 
   useEffect(() => {
     // Auth Check
@@ -75,6 +102,8 @@ const AdminDashboard = () => {
   const menuItems = [
     { id: 'overview', name: 'Overview', icon: <BarChart className="w-4 h-4" /> },
     { id: 'announcements', name: 'Announcements', icon: <Megaphone className="w-4 h-4" /> },
+    { id: 'hero-slides', name: 'Hero Banner Slider', icon: <Grid className="w-4 h-4" /> },
+    { id: 'history', name: 'Temple History', icon: <BookOpen className="w-4 h-4" /> },
     { id: 'festivals', name: 'Festivals & Poojas', icon: <Calendar className="w-4 h-4" /> },
     { id: 'schedules', name: 'Festival Schedule', icon: <Calendar className="w-4 h-4" /> },
     { id: 'gallery', name: 'Gallery Media', icon: <Image className="w-4 h-4" /> },
@@ -181,9 +210,54 @@ const AdminDashboard = () => {
               <div className="space-y-3 relative z-10 max-w-xl">
                 <h4 className="text-2xl font-bold font-serif">Welcome back, {adminUser}!</h4>
                 <p className="text-sm text-slate-200 leading-relaxed">
-                  Use this secure panel to manage all administrative aspects of Arulmigu Sri Siddhi Vinayagar Temple. You can update daily routines, post news alerts, inspect transactions, and reply to messages.
+                  Use this secure panel to manage all administrative aspects of the temple. You can update daily routines, post news alerts, inspect transactions, and reply to messages.
                 </p>
               </div>
+            </div>
+
+            {/* Change Password Card */}
+            <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-850 rounded-3xl p-6 md:p-8 shadow-sm space-y-6 max-w-md">
+              <h4 className="text-lg font-serif font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                <ShieldAlert className="w-5 h-5 text-temple-saffron" />
+                {language === 'en' ? 'Change Admin Password' : 'கடவுச்சொல்லை மாற்றுக'}
+              </h4>
+              
+              {passSuccess && <p className="text-xs text-green-600 font-bold bg-green-50 dark:bg-green-950/40 p-3 rounded-lg border border-green-150">{passSuccess}</p>}
+              {passError && <p className="text-xs text-red-650 font-bold bg-red-50 dark:bg-red-950/40 p-3 rounded-lg border border-red-150">{passError}</p>}
+
+              <form onSubmit={handlePasswordChange} className="space-y-4">
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-550 dark:text-slate-400 uppercase tracking-wider">
+                    {language === 'en' ? 'Current Password' : 'தற்போதைய கடவுச்சொல்'}
+                  </label>
+                  <input
+                    type="password"
+                    value={passwords.currentPassword}
+                    onChange={(e) => setPasswords({ ...passwords, currentPassword: e.target.value })}
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-250 dark:border-slate-850 bg-transparent text-sm focus:border-temple-gold focus:ring-1 focus:ring-temple-gold outline-none text-slate-800 dark:text-white"
+                    required
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-550 dark:text-slate-400 uppercase tracking-wider">
+                    {language === 'en' ? 'New Password' : 'புதிய கடவுச்சொல்'}
+                  </label>
+                  <input
+                    type="password"
+                    value={passwords.newPassword}
+                    onChange={(e) => setPasswords({ ...passwords, newPassword: e.target.value })}
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-250 dark:border-slate-850 bg-transparent text-sm focus:border-temple-gold focus:ring-1 focus:ring-temple-gold outline-none text-slate-800 dark:text-white"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  disabled={passLoading}
+                  className="px-6 py-3 bg-[#cca43b] hover:bg-[#b08b30] text-slate-950 font-bold rounded-xl text-xs uppercase tracking-widest transition disabled:opacity-50 cursor-pointer"
+                >
+                  {passLoading ? 'Updating...' : (language === 'en' ? 'Change Password' : 'கடவுச்சொல் மாற்று')}
+                </button>
+              </form>
             </div>
           </div>
         )}
@@ -192,6 +266,8 @@ const AdminDashboard = () => {
         {activeTab === 'festivals' && <FestivalsManager />}
         {activeTab === 'schedules' && <FestivalScheduleManager />}
         {activeTab === 'gallery' && <GalleryManager />}
+        {activeTab === 'hero-slides' && <HeroSlideManager />}
+        {activeTab === 'history' && <HistoryManager />}
         {activeTab === 'donations' && <DonationsLog />}
         {activeTab === 'messages' && <MessagesLog />}
       </main>

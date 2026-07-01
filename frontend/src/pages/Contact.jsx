@@ -55,9 +55,6 @@ const Contact = () => {
         <h1 className="text-3xl md:text-5xl font-extrabold font-serif text-temple-maroon dark:text-temple-gold">
           {t('contactHeader')}
         </h1>
-        <p className="text-sm md:text-base text-slate-550 dark:text-slate-400 max-w-2xl mx-auto">
-          {t('contactSub')}
-        </p>
         <div className="w-24 h-1 bg-gradient-to-r from-temple-gold to-temple-saffron mx-auto rounded-full" />
       </div>
 
@@ -66,13 +63,9 @@ const Contact = () => {
         <div className="lg:col-span-5 space-y-6">
           <div className="bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-850 rounded-3xl p-6 md:p-8 shadow-sm space-y-6 transition-colors">
             <h3 className="text-lg font-serif font-bold text-slate-800 dark:text-white border-b border-slate-105 dark:border-slate-850 pb-3 flex items-center gap-2">
-              <Clock className="w-5 h-5 text-temple-saffron" />
-              {t('contactOfficeTitle')}
+              <Mail className="w-5 h-5 text-temple-saffron" />
+              {t('contactQuickInfo')}
             </h3>
-            
-            <p className="text-sm text-slate-500 leading-relaxed italic">
-              {t('officeHours')}
-            </p>
 
             <div className="space-y-4 text-slate-650 dark:text-slate-350 text-sm">
               <div className="flex items-start space-x-3">

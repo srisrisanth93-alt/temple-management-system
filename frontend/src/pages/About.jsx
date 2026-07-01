@@ -1,10 +1,14 @@
-import React from 'react';
-import { Sparkles, ShieldCheck } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Sparkles, ShieldCheck, RefreshCw } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { apiCall } from '../utils/api';
 
 const About = () => {
   const { t, language } = useLanguage();
-  const historyPointsTA = [
+  const [points, setPoints] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const defaultHistoryPoints = [
     "முனியப்பன் சாமி தமிழ்நாட்டின் கிராமப்புறங்களில் வழிபடப்படும் சக்தி வாய்ந்த காவல் தெய்வமாக கருதப்படுகிறார்.",
     "கிராம மக்களை தீய சக்திகள் மற்றும் இயற்கை பேரிடர்களிலிருந்து காப்பவர் என்று நம்பப்படுகிறது.",
     "முனியப்பன் சாமி நீதியையும் தர்மத்தையும் காக்கும் தெய்வமாக போற்றப்படுகிறார்.",
@@ -16,6 +20,22 @@ const About = () => {
     "முனியப்பன் சாமி பக்தர்களுக்கு தைரியம், நம்பிக்கை மற்றும் பாதுகாப்பை அளிப்பவர் என கருதப்படுகிறார்.",
     "அதனால் முனியப்பன் சாமி தமிழர் பாரம்பரியத்தின் முக்கியமான காவல் தெய்வங்களில் ஒருவராக இன்று வரை பக்தியுடன் வழிபடப்பட்டு வருகிறார். 🙏🛕"
   ];
+
+  useEffect(() => {
+    const fetchHistory = async () => {
+      try {
+        const data = await apiCall('/history-points');
+        setPoints(data);
+      } catch (error) {
+        console.error('Error fetching history:', error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchHistory();
+  }, []);
+
+  const activePoints = points.length > 0 ? points.map(p => p.content) : defaultHistoryPoints;
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
@@ -58,24 +78,31 @@ const About = () => {
       <div className="max-w-4xl mx-auto space-y-6">
         <h3 className="text-xl md:text-2xl font-bold font-serif text-slate-800 dark:text-white flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
           <Sparkles className="w-5 h-5 text-temple-saffron" />
-          முனியப்பன் சாமி வரலாறு (10 வரிகள்)
+          முனியப்பன் சாமி வரலாறு (கோவில் குறிப்புகள்)
         </h3>
         
-        <div className="grid grid-cols-1 gap-4">
-          {historyPointsTA.map((point, index) => (
-            <div 
-              key={index} 
-              className="bg-white dark:bg-slate-900 border border-slate-150/70 dark:border-slate-850 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all flex items-start gap-4 hover:border-temple-gold/40"
-            >
-              <div className="bg-gradient-to-br from-temple-maroon to-temple-maroonLight text-white font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-sm mt-0.5">
-                {index + 1}
+        {loading ? (
+          <div className="text-center py-12 text-slate-500">
+            <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-2 text-temple-gold" />
+            <p className="text-xs">வரலாறு லோடு ஆகிறது...</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-4">
+            {activePoints.map((point, index) => (
+              <div 
+                key={index} 
+                className="bg-white dark:bg-slate-900 border border-slate-150/70 dark:border-slate-850 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all flex items-start gap-4 hover:border-temple-gold/40"
+              >
+                <div className="bg-gradient-to-br from-temple-maroon to-temple-maroonLight text-white font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+                  {index + 1}
+                </div>
+                <p className="text-slate-700 dark:text-slate-350 text-[15px] md:text-base leading-relaxed">
+                  {point}
+                </p>
               </div>
-              <p className="text-slate-700 dark:text-slate-350 text-[15px] md:text-base leading-relaxed">
-                {point}
-              </p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

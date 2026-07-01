@@ -77,21 +77,18 @@ const Footer = () => {
           {/* Col 3: Timings */}
           <div className="space-y-4">
             <h4 className="text-base font-bold text-white border-b border-temple-gold/30 pb-2">
-              {t('timingsHeader')}
+              தரிசன நேரம்
             </h4>
             <div className="space-y-3 text-sm text-slate-400">
               <div className="flex items-start space-x-2">
                 <Clock className="w-4 h-4 text-temple-gold mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold text-slate-300">{t('dailyTimings')}</p>
-                  <p>{t('morningTimings')}</p>
-                  <p>{t('eveningTimings')}</p>
+                  <p className="font-semibold text-slate-300">தினசரி தரிசன நேரம்</p>
+                  <p className="text-temple-gold font-semibold mt-1">காலை 06:00 மணி முதல் மாலை 06:00 மணி வரை</p>
                 </div>
               </div>
               <p className="text-xs text-slate-500 leading-normal italic">
-                {language === 'en' 
-                  ? "*Timings may change on festival days and special auspicious occasions."
-                  : "*திருவிழாக்கள் மற்றும் விசேஷ நாட்களில் தரிசன நேரங்கள் மாறக்கூடும்."}
+                *திருவிழாக்கள் மற்றும் விசேஷ நாட்களில் தரிசன நேரங்கள் மாறக்கூடும்.
               </p>
             </div>
           </div>
@@ -128,12 +125,6 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} {t('templeName')}.{' '}
             {language === 'en' ? 'All rights reserved.' : 'அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.'}
           </p>
-          <div className="flex items-center space-x-4 mt-3 md:mt-0">
-            <Link to="/admin/login" className="hover:text-temple-gold transition-colors flex items-center space-x-1">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>{t('navAdmin')} Login</span>
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

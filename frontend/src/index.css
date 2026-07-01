@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-orange-50/30 text-slate-800 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100 font-sans;
+    @apply bg-orange-50/20 text-slate-800 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100 font-sans;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -36,4 +36,109 @@
 .animate-fade-in {
   opacity: 0;
   animation: fadeIn 1.8s ease-out 0.2s forwards;
+}
+
+/* Flicker animation for glowing oil lamps (🪔) */
+@keyframes flicker {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(253, 186, 116, 0.7)) drop-shadow(0 0 12px rgba(251, 146, 60, 0.4)) saturate(1.2);
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(253, 186, 116, 0.95)) drop-shadow(0 0 18px rgba(251, 146, 60, 0.6)) saturate(1.5);
+    transform: scale(1.03);
+  }
+}
+.animate-flicker {
+  animation: flicker 3s infinite ease-in-out;
+}
+
+/* Divine sun rays animation */
+@keyframes sunray {
+  0%, 100% {
+    opacity: 0.15;
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    opacity: 0.28;
+    transform: rotate(4deg) scale(1.08);
+  }
+}
+.divine-sunrays {
+  background: radial-gradient(circle at 50% 0%, rgba(253, 224, 71, 0.18) 0%, rgba(253, 224, 71, 0.05) 50%, transparent 100%);
+  animation: sunray 9s infinite ease-in-out;
+  pointer-events: none;
+}
+
+/* Flower petals floating animation */
+@keyframes driftDown {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(120px, 110vh, 0) rotate(420deg) scale(1.1);
+    opacity: 0;
+  }
+}
+.floating-petal {
+  position: absolute;
+  background: linear-gradient(135deg, #f43f5e, #be123c); /* Crimson Rose color */
+  border-radius: 150% 0% 150% 50% / 150% 0% 150% 50%;
+  width: 13px;
+  height: 13px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+  animation: driftDown 14s linear infinite;
+}
+
+.floating-petal-yellow {
+  background: linear-gradient(135deg, #fbbf24, #d97706); /* Marigold color */
+  border-radius: 50%;
+  width: 11px;
+  height: 11px;
+}
+
+/* Glassmorphism cards with golden borders */
+.glass-card-gold {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(204, 164, 59, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(74, 8, 10, 0.04);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dark .glass-card-gold {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1.5px solid rgba(204, 164, 59, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+}
+.glass-card-gold:hover {
+  border-color: rgba(204, 164, 59, 0.75);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px 0 rgba(74, 8, 10, 0.12);
+}
+.dark .glass-card-gold:hover {
+  box-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* Parallax backgrounds */
+.bg-parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media (max-width: 768px) {
+  /* Disable parallax on mobile screens for better performance */
+  .bg-parallax {
+    background-attachment: scroll;
+  }
 }

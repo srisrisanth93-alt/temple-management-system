@@ -142,7 +142,7 @@ const Navbar = () => {
             </div>
 
             {/* Admin / Logout */}
-            {isAdmin ? (
+            {isAdmin && (
               <div className="flex items-center space-x-3 border-l border-[#cca43b]/20 pl-4">
                 <Link
                   to="/admin/dashboard"
@@ -158,13 +158,6 @@ const Navbar = () => {
                   {t('logout')}
                 </button>
               </div>
-            ) : (
-              <Link
-                to="/admin/login"
-                className="text-[12px] font-bold text-[#cca43b]/80 hover:text-white uppercase tracking-widest pl-2"
-              >
-                {t('navAdmin')}
-              </Link>
             )}
           </div>
 
@@ -208,37 +201,27 @@ const Navbar = () => {
             </Link>
           ))}
           
-          <div className="border-t border-slate-800 pt-4 mt-4 space-y-2">
-            {isAdmin ? (
-              <>
-                <Link
-                  to="/admin/dashboard"
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between px-4 py-3 bg-red-950/20 text-red-400 border border-red-900/30 rounded-lg text-sm font-bold uppercase tracking-wider"
-                >
-                  <span>Admin Dashboard</span>
-                  <ShieldAlert className="w-5 h-5" />
-                </Link>
-                <button
-                  onClick={() => {
-                    handleLogout();
-                    setIsOpen(false);
-                  }}
-                  className="w-full text-left px-4 py-3 text-stone-400 hover:text-white font-bold text-sm uppercase cursor-pointer"
-                >
-                  {t('logout')}
-                </button>
-              </>
-            ) : (
+          {isAdmin && (
+            <div className="border-t border-slate-800 pt-4 mt-4 space-y-2">
               <Link
-                to="/admin/login"
+                to="/admin/dashboard"
                 onClick={() => setIsOpen(false)}
-                className="block px-4 py-3 text-stone-400 hover:text-[#cca43b] font-bold text-sm uppercase tracking-wider"
+                className="flex items-center justify-between px-4 py-3 bg-red-950/20 text-red-400 border border-red-900/30 rounded-lg text-sm font-bold uppercase tracking-wider"
               >
-                {t('navAdmin')}
+                <span>Admin Dashboard</span>
+                <ShieldAlert className="w-5 h-5" />
               </Link>
-            )}
-          </div>
+              <button
+                onClick={() => {
+                  handleLogout();
+                  setIsOpen(false);
+                }}
+                className="w-full text-left px-4 py-3 text-stone-400 hover:text-white font-bold text-sm uppercase cursor-pointer"
+              >
+                {t('logout')}
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>
