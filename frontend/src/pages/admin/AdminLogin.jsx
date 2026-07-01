@@ -41,7 +41,10 @@ const AdminLogin = () => {
     try {
       const data = await apiCall('/auth/login', {
         method: 'POST',
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ 
+          username: username.trim(), 
+          password: password.trim() 
+        }),
       });
 
       // Save token
@@ -96,6 +99,8 @@ const AdminLogin = () => {
                 required
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                autoCapitalize="none"
+                autoCorrect="off"
                 placeholder="e.g. admin"
                 className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-205 dark:border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:border-temple-gold"
               />
@@ -114,8 +119,10 @@ const AdminLogin = () => {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                autoCapitalize="none"
+                autoCorrect="off"
                 placeholder="••••••••"
-                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-205 dark:border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:border-temple-gold"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-205 dark:border-slate-850 rounded-xl pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:border-temple-gold"
               />
             </div>
           </div>
