@@ -144,12 +144,12 @@ const Home = () => {
       
       {/* 1. HERO CAROUSEL / BANNER WITH DIVINE LIGHTS & FLOWERS */}
       <section className="relative h-[70vh] md:h-[85vh] flex items-center justify-center overflow-hidden">
-        {/* Slide background with crossfade */}
+        {/* Slide background with crossfade & Ken Burns effect */}
         {slides.map((slide, idx) => (
           <div
             key={idx}
-            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
-              idx === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
+            className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out ${
+              idx === currentSlide ? 'opacity-100 scale-100 animate-ken-burns' : 'opacity-0 scale-95 pointer-events-none'
             }`}
             style={{ backgroundImage: `url('${slide.image}')` }}
           />
@@ -160,6 +160,28 @@ const Home = () => {
         
         {/* Divine Sun Rays Overlay */}
         <div className="absolute inset-0 divine-sunrays z-10" />
+
+        {/* Floating Gold Dust Particles */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-20">
+          {[...Array(12)].map((_, i) => {
+            const delay = (i * 1.5).toFixed(1);
+            const left = (10 + i * 8).toFixed(1);
+            const size = (4 + (i % 3) * 3);
+            return (
+              <div 
+                key={i} 
+                className="dust-particle"
+                style={{
+                  left: `${left}%`,
+                  width: `${size}px`,
+                  height: `${size}px`,
+                  animationDelay: `${delay}s`,
+                  animationDuration: `${12 + (i % 4) * 4}s`
+                }}
+              />
+            );
+          })}
+        </div>
  
         {/* Floating Flower Petals (Rose & Marigold) */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-20">
@@ -187,7 +209,7 @@ const Home = () => {
             <span className="animate-flicker text-sm">🪔</span> Welcome to <span className="animate-flicker text-sm">🪔</span>
           </span>
           <div className="space-y-1">
-            <h1 className="text-4xl md:text-7xl font-serif font-extrabold tracking-wide text-white leading-none">
+            <h1 className="text-4xl md:text-7xl font-serif font-extrabold tracking-wide text-white leading-none text-shine">
               ஸ்ரீ முனியப்பன்
             </h1>
             <h2 className="text-xl md:text-3.5xl font-serif tracking-widest text-[#cca43b] font-bold uppercase mt-2">
@@ -195,7 +217,7 @@ const Home = () => {
             </h2>
           </div>
           
-          <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#cca43b] to-transparent mx-auto my-3" />
+          <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#cca43b] to-transparent mx-auto my-3 animate-scale-width" />
           
           <p className="text-[14px] md:text-[18px] text-slate-200 font-serif leading-relaxed whitespace-pre-line italic drop-shadow-md">
             {slides[currentSlide].quoteTA}
@@ -204,7 +226,7 @@ const Home = () => {
           <div className="pt-4">
             <Link 
               to="/about" 
-              className="inline-block px-8 py-3 bg-[#cca43b] hover:bg-[#b08b30] text-slate-950 font-bold rounded shadow-lg hover:shadow-xl hover:scale-105 transition-all text-xs md:text-sm uppercase tracking-widest cursor-pointer"
+              className="inline-block px-8 py-3 bg-[#cca43b] hover:bg-[#b08b30] text-slate-950 font-bold rounded shadow-lg hover:shadow-xl hover:scale-105 transition-all text-xs md:text-sm uppercase tracking-widest cursor-pointer btn-premium-glow"
             >
               KNOW MORE
             </Link>
@@ -287,7 +309,7 @@ const Home = () => {
       </section>
 
       {/* 3. ABOUT OUR TEMPLE SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 scroll-reveal">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Text details */}
@@ -307,26 +329,26 @@ const Home = () => {
             <div className="pt-2">
               <Link 
                 to="/about"
-                className="inline-block px-7 py-3 bg-[#4a080a] text-[#cca43b] border border-[#cca43b]/40 hover:bg-[#6e0d10] font-bold rounded text-xs uppercase tracking-widest shadow-md transition-all hover:scale-105 cursor-pointer"
+                className="inline-block px-7 py-3 bg-[#4a080a] text-[#cca43b] border border-[#cca43b]/40 hover:bg-[#6e0d10] font-bold rounded text-xs uppercase tracking-widest shadow-md transition-all hover:scale-105 cursor-pointer btn-premium-glow"
               >
                 READ MORE
               </Link>
             </div>
           </div>
 
-          {/* Right side row of 4 rounded-corner images */}
+          {/* Right side row of 4 rounded-corner images with floating effects */}
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="aspect-[3/4] bg-stone-100 rounded-2xl overflow-hidden shadow border border-[#cca43b]/30 hover:shadow-xl hover:scale-103 transition-all">
-              <img src="/temple_hero_banner.jpg" alt="Deity Closeup" className="w-full h-full object-cover" />
+            <div className="aspect-[3/4] bg-stone-100 rounded-2xl overflow-hidden shadow border border-[#cca43b]/30 float-slow hover:shadow-xl hover:scale-105 transition-all duration-500">
+              <img src="/temple_hero_banner.jpg" alt="Deity Closeup" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
             </div>
-            <div className="aspect-[3/4] bg-stone-100 rounded-2xl overflow-hidden shadow border border-[#cca43b]/30 translate-y-3 hover:shadow-xl hover:scale-103 transition-all">
-              <img src="/temple_hero_banner.jpg" alt="Temple Shrine" className="w-full h-full object-cover" />
+            <div className="aspect-[3/4] bg-stone-100 rounded-2xl overflow-hidden shadow border border-[#cca43b]/30 translate-y-3 hover:shadow-xl hover:scale-105 transition-all duration-500">
+              <img src="/temple_hero_banner.jpg" alt="Temple Shrine" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
             </div>
-            <div className="aspect-[3/4] bg-stone-100 rounded-2xl overflow-hidden shadow border border-[#cca43b]/30 hover:shadow-xl hover:scale-103 transition-all">
-              <img src="/temple_hero_banner.jpg" alt="Gopuram Structure" className="w-full h-full object-cover" />
+            <div className="aspect-[3/4] bg-stone-100 rounded-2xl overflow-hidden shadow border border-[#cca43b]/30 float-slow hover:shadow-xl hover:scale-105 transition-all duration-500">
+              <img src="/temple_hero_banner.jpg" alt="Gopuram Structure" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
             </div>
-            <div className="aspect-[3/4] bg-stone-100 rounded-2xl overflow-hidden shadow border border-[#cca43b]/30 translate-y-3 hover:shadow-xl hover:scale-103 transition-all">
-              <img src="/temple_hero_banner.jpg" alt="Devotional Items" className="w-full h-full object-cover" />
+            <div className="aspect-[3/4] bg-stone-100 rounded-2xl overflow-hidden shadow border border-[#cca43b]/30 translate-y-3 hover:shadow-xl hover:scale-105 transition-all duration-500">
+              <img src="/temple_hero_banner.jpg" alt="Devotional Items" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
             </div>
           </div>
 
@@ -335,7 +357,7 @@ const Home = () => {
 
       {/* 4. UPCOMING FESTIVAL & TEMPLE TIMINGS (CINEMATIC PARALLAX SECTION) */}
       <section 
-        className="relative bg-parallax border-y border-[#cca43b]/15 py-20 overflow-hidden bg-cover bg-center"
+        className="relative bg-parallax border-y border-[#cca43b]/15 py-20 overflow-hidden bg-cover bg-center scroll-reveal"
         style={{ backgroundImage: "linear-gradient(to bottom, rgba(74, 8, 10, 0.94), rgba(53, 5, 7, 0.94)), url('/temple_hero_banner.jpg')" }}
       >
         {/* Floating Petals Inside Parallax */}
@@ -419,7 +441,7 @@ const Home = () => {
 
               <Link 
                 to="/thiruvizha"
-                className="px-6 py-2.5 bg-[#cca43b] hover:bg-[#b08b30] text-slate-950 font-bold rounded text-[10px] uppercase tracking-widest transition-all hover:scale-105 cursor-pointer"
+                className="px-6 py-2.5 bg-[#cca43b] hover:bg-[#b08b30] text-slate-950 font-bold rounded text-[10px] uppercase tracking-widest transition-all hover:scale-105 cursor-pointer btn-premium-glow"
               >
                 VIEW DETAILS
               </Link>
@@ -448,7 +470,7 @@ const Home = () => {
       </section>
 
       {/* 5. LATEST ANNOUNCEMENTS SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8 scroll-reveal">
         <div className="flex items-center space-x-3 border-b border-stone-200 dark:border-slate-800 pb-3 justify-between">
           <div className="flex items-center space-x-2">
             <Bell className="w-5 h-5 text-[#cca43b]" />

@@ -7,7 +7,7 @@ const Pooja = () => {
 
   return (
     <div className="w-full bg-[#fcfaf7] dark:bg-slate-950 min-h-screen py-16 transition-colors duration-300">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 scroll-reveal">
         
         {/* Page Header */}
         <div className="text-center space-y-3">
@@ -25,7 +25,7 @@ const Pooja = () => {
         <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto">
           
           {/* Card 1: Friday Special Pooja */}
-          <div className="bg-white dark:bg-slate-900 border border-[#cca43b]/35 p-6 md:p-8 rounded-3xl shadow-md hover:shadow-xl hover:scale-[1.01] transition-all flex flex-col md:flex-row items-center md:items-start gap-5 relative overflow-hidden">
+          <div className="bg-white dark:bg-slate-900 border border-[#cca43b]/35 p-6 md:p-8 rounded-3xl shadow-md hover:shadow-xl hover:scale-[1.01] transition-all flex flex-col md:flex-row items-center md:items-start gap-5 relative overflow-hidden scroll-reveal">
             <div className="absolute top-0 left-0 w-3 h-full bg-[#4a080a]" />
             
             <div className="bg-[#4a080a] text-[#cca43b] p-4 rounded-2xl shrink-0 shadow-inner border border-[#cca43b]/25">
@@ -49,7 +49,7 @@ const Pooja = () => {
           </div>
 
           {/* Card 2: Pournami Special Pooja */}
-          <div className="bg-white dark:bg-slate-900 border border-[#cca43b]/35 p-6 md:p-8 rounded-3xl shadow-md hover:shadow-xl hover:scale-[1.01] transition-all flex flex-col md:flex-row items-center md:items-start gap-5 relative overflow-hidden">
+          <div className="bg-white dark:bg-slate-900 border border-[#cca43b]/35 p-6 md:p-8 rounded-3xl shadow-md hover:shadow-xl hover:scale-[1.01] transition-all flex flex-col md:flex-row items-center md:items-start gap-5 relative overflow-hidden scroll-reveal">
             <div className="absolute top-0 left-0 w-3 h-full bg-[#4a080a]" />
             
             <div className="bg-[#4a080a] text-[#cca43b] p-4 rounded-2xl shrink-0 shadow-inner border border-[#cca43b]/25">

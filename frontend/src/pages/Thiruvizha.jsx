@@ -25,20 +25,20 @@ const Thiruvizha = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8 print:p-0 print:max-w-full">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8 print:p-0 print:max-w-full scroll-reveal">
       
       {/* Action Buttons Ticker (Hidden during print) */}
       <div className="flex flex-wrap items-center justify-end gap-3 print:hidden">
         <button 
           onClick={handlePrint}
-          className="flex items-center gap-1.5 px-4.5 py-2 bg-[#4a080a] hover:bg-[#6e0d10] text-white font-bold rounded text-xs uppercase tracking-wider transition-colors cursor-pointer shadow"
+          className="flex items-center gap-1.5 px-4.5 py-2 bg-[#4a080a] hover:bg-[#6e0d10] text-white font-bold rounded text-xs uppercase tracking-wider transition-colors cursor-pointer shadow btn-premium-glow"
         >
           <Printer className="w-4 h-4 text-[#cca43b]" />
           அச்சிடு (Print)
         </button>
         <button 
           onClick={handlePrint}
-          className="flex items-center gap-1.5 px-4.5 py-2 bg-[#cca43b] hover:bg-[#b08b30] text-slate-950 font-bold rounded text-xs uppercase tracking-wider transition-colors cursor-pointer shadow"
+          className="flex items-center gap-1.5 px-4.5 py-2 bg-[#cca43b] hover:bg-[#b08b30] text-slate-950 font-bold rounded text-xs uppercase tracking-wider transition-colors cursor-pointer shadow btn-premium-glow"
         >
           <Download className="w-4 h-4 text-slate-950" />
           PDF பதிவிறக்கம்
@@ -46,14 +46,14 @@ const Thiruvizha = () => {
       </div>
 
       {/* Notice Board Main Frame */}
-      <div className="bg-[#fdfaf2] border-4 border-double border-[#cca43b] rounded-3xl p-6 md:p-10 shadow-2xl space-y-8 print:border-2 print:shadow-none print:p-4 print:bg-white animate-fade-in">
+      <div className="bg-[#fdfaf2] border-4 border-double border-[#cca43b] rounded-3xl p-6 md:p-10 shadow-2xl space-y-8 print:border-2 print:shadow-none print:p-4 print:bg-white animate-fade-in scroll-reveal">
         
         {/* Notice Board Header with traditional decorations */}
         <div className="text-center space-y-3 pb-6 border-b-2 border-dashed border-[#cca43b]/40">
           <div className="flex justify-center items-center gap-4 text-2xl md:text-3xl">
-            <span className="animate-pulse">🪔</span>
+            <span className="animate-flicker diya-flame-glow inline-block">🪔</span>
             <span className="animate-bounce text-[#cca43b]">🛕</span>
-            <span className="animate-pulse">🔔</span>
+            <span className="animate-flicker diya-flame-glow inline-block">🪔</span>
           </div>
           
           <h1 className="text-xl md:text-3xl font-serif font-extrabold text-[#4a080a] tracking-wide leading-snug">

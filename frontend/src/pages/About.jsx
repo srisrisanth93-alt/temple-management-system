@@ -38,7 +38,7 @@ const About = () => {
   const activePoints = points.length > 0 ? points.map(p => p.content) : defaultHistoryPoints;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12 scroll-reveal">
       {/* Deity Image Card */}
       <div className="max-w-4xl mx-auto relative group">
         <div className="absolute inset-0 bg-gradient-to-r from-temple-saffron to-temple-gold rounded-3xl blur-md opacity-25 -m-1" />
@@ -46,7 +46,7 @@ const About = () => {
           <img 
             src="/temple_hero_banner.jpg" 
             alt="Arulmigu Sri Muniyappan Deities" 
-            className="w-full h-64 md:h-[400px] object-cover rounded-2xl shadow"
+            className="w-full h-64 md:h-[400px] object-cover rounded-2xl shadow transition-transform duration-700 hover:scale-103"
           />
           <div className="absolute bottom-6 left-6 right-6 bg-slate-950/80 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/10 text-white flex items-center gap-3">
             <div className="bg-gradient-to-r from-temple-gold to-temple-saffron text-slate-950 p-2.5 rounded-xl">
@@ -65,7 +65,7 @@ const About = () => {
       </div>
 
       {/* Intro Section Paragraph */}
-      <div className="max-w-4xl mx-auto bg-white dark:bg-slate-900 border border-slate-150 dark:border-slate-800 p-6 md:p-8 rounded-3xl shadow-sm space-y-3">
+      <div className="max-w-4xl mx-auto bg-white dark:bg-slate-900 border border-slate-150 dark:border-slate-800 p-6 md:p-8 rounded-3xl shadow-sm space-y-3 scroll-reveal">
         <h2 className="text-xl md:text-2xl font-bold font-serif text-temple-maroon dark:text-temple-gold border-b border-slate-100 dark:border-slate-850 pb-2">
           {t('templeName')}
         </h2>
@@ -75,7 +75,7 @@ const About = () => {
       </div>
 
       {/* History 10 Points List */}
-      <div className="max-w-4xl mx-auto space-y-6">
+      <div className="max-w-4xl mx-auto space-y-6 scroll-reveal">
         <h3 className="text-xl md:text-2xl font-bold font-serif text-slate-800 dark:text-white flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
           <Sparkles className="w-5 h-5 text-temple-saffron" />
           முனியப்பன் சாமி வரலாறு (கோவில் குறிப்புகள்)
@@ -91,7 +91,7 @@ const About = () => {
             {activePoints.map((point, index) => (
               <div 
                 key={index} 
-                className="bg-white dark:bg-slate-900 border border-slate-150/70 dark:border-slate-850 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all flex items-start gap-4 hover:border-temple-gold/40"
+                className="bg-white dark:bg-slate-900 border border-slate-150/70 dark:border-slate-850 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all flex items-start gap-4 hover:border-temple-gold/40 hover:-translate-y-0.5 duration-300"
               >
                 <div className="bg-gradient-to-br from-temple-maroon to-temple-maroonLight text-white font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-sm mt-0.5">
                   {index + 1}

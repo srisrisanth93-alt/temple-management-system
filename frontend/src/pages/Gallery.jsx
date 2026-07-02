@@ -56,7 +56,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12 scroll-reveal">
       {/* Header */}
       <div className="text-center space-y-4">
         <h1 className="text-3xl md:text-5xl font-extrabold font-serif text-temple-maroon dark:text-temple-gold">
@@ -77,7 +77,7 @@ const Gallery = () => {
           <button
             key={cat.key}
             onClick={() => setActiveFilter(cat.key)}
-            className={`px-5 py-2 rounded-full text-sm font-medium tracking-wide transition-all cursor-pointer ${
+            className={`px-5 py-2 rounded-full text-sm font-medium tracking-wide transition-all cursor-pointer btn-premium-glow ${
               activeFilter === cat.key
                 ? 'bg-gradient-to-r from-temple-maroon to-temple-saffron text-white shadow-md'
                 : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-650 dark:text-slate-300 hover:border-temple-gold'
@@ -106,7 +106,7 @@ const Gallery = () => {
             <div
               key={item._id}
               onClick={() => openLightbox(item, idx)}
-              className="group relative aspect-video sm:aspect-square bg-slate-900 rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
+              className="group relative aspect-video sm:aspect-square bg-slate-900 rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 scroll-reveal"
             >
               {/* Media Element */}
               {item.mediaType === 'photo' ? (

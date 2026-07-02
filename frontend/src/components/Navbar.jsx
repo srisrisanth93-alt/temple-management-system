@@ -64,12 +64,12 @@ const Navbar = () => {
       </div>
 
       {/* 2. Navbar Main Header (Maroon background) */}
-      <nav className="bg-[#4a080a] text-white border-b border-[#cca43b]/20 py-4 px-4 sm:px-6 lg:px-8">
+      <nav className="bg-[#4a080a]/90 backdrop-blur-md text-white border-b border-[#cca43b]/20 py-4 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           
           {/* Logo & Temple Name */}
           <Link to="/" className="flex items-center space-x-3 group shrink-0">
-            <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-[#cca43b]/40 shadow-md transform group-hover:rotate-12 transition-transform duration-300 bg-amber-950/20">
+            <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-[#cca43b]/40 shadow-md transform group-hover:rotate-12 group-hover:shadow-[0_0_15px_rgba(204,164,59,0.5)] transition-all duration-300 bg-amber-950/20">
               <img src="/temple_logo.png" alt="Muniyappan Swamy Temple Logo" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col leading-none">
@@ -88,16 +88,16 @@ const Navbar = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-[13px] font-bold tracking-widest uppercase transition-all duration-300 relative py-2 ${
+                className={`text-[13px] font-bold tracking-widest uppercase transition-all duration-300 relative py-2 group ${
                   location.pathname === item.path
                     ? 'text-[#cca43b]'
                     : 'text-slate-200 hover:text-[#cca43b]'
                 }`}
               >
                 {item.name}
-                {location.pathname === item.path && (
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#cca43b] rounded-full"></span>
-                )}
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-[#cca43b] rounded-full transition-all duration-300 ${
+                  location.pathname === item.path ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}></span>
               </Link>
             ))}
 

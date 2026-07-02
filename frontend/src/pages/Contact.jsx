@@ -49,7 +49,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16 scroll-reveal">
       {/* Header */}
       <div className="text-center space-y-4">
         <h1 className="text-3xl md:text-5xl font-extrabold font-serif text-temple-maroon dark:text-temple-gold">
@@ -60,7 +60,7 @@ const Contact = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Contact info cards */}
-        <div className="lg:col-span-5 space-y-6">
+        <div className="lg:col-span-5 space-y-6 scroll-reveal">
           <div className="bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-850 rounded-3xl p-6 md:p-8 shadow-sm space-y-6 transition-colors">
             <h3 className="text-lg font-serif font-bold text-slate-800 dark:text-white border-b border-slate-105 dark:border-slate-850 pb-3 flex items-center gap-2">
               <Mail className="w-5 h-5 text-temple-saffron" />
@@ -100,7 +100,7 @@ const Contact = () => {
         </div>
 
         {/* Contact Form */}
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-7 scroll-reveal">
           <form 
             onSubmit={handleSubmit}
             className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-850 rounded-3xl p-6 md:p-8 shadow-md space-y-4 transition-colors"
@@ -200,7 +200,7 @@ const Contact = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-temple-saffron to-temple-saffronDark text-white py-3 rounded-xl font-bold hover:from-temple-gold hover:to-temple-goldDark hover:text-slate-950 transition-all cursor-pointer shadow flex items-center justify-center gap-2"
+              className="w-full bg-gradient-to-r from-temple-saffron to-temple-saffronDark text-white py-3 rounded-xl font-bold hover:from-temple-gold hover:to-temple-goldDark hover:text-slate-950 transition-all cursor-pointer shadow flex items-center justify-center gap-2 btn-premium-glow"
             >
               {loading ? (
                 <>
@@ -234,7 +234,7 @@ const Contact = () => {
               href="https://maps.app.goo.gl/K1Ux1GcQmHoDdCbu7"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-gradient-to-r from-temple-saffron to-temple-saffronDark hover:from-temple-gold hover:to-temple-goldDark hover:text-slate-950 text-white font-bold text-sm px-6 py-2.5 rounded-xl transition-all shadow-md hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center bg-gradient-to-r from-temple-saffron to-temple-saffronDark hover:from-temple-gold hover:to-temple-goldDark hover:text-slate-950 text-white font-bold text-sm px-6 py-2.5 rounded-xl transition-all shadow-md hover:-translate-y-0.5 btn-premium-glow"
             >
               {language === 'en' ? 'Get Directions' : 'வழிப்பாதையை பெறுங்கள்'}
             </a>

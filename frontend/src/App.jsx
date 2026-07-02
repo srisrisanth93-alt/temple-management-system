@@ -41,9 +41,46 @@ const FloatingLanguageToggle = () => {
 const AppContent = () => {
   const { language } = useLanguage();
 
+  React.useEffect(() => {
+    // Add page-fade-in to the main container
+    const mainDiv = document.getElementById('main-app-container');
+    if (mainDiv) {
+      mainDiv.classList.add('page-fade-in');
+    }
+
+    // Scroll reveal observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    // Initial observe
+    const elements = document.querySelectorAll('.scroll-reveal');
+    elements.forEach((el) => observer.observe(el));
+
+    // MutationObserver to capture client-side navigated/rendered elements
+    const mutationObserver = new MutationObserver(() => {
+      const unobserved = document.querySelectorAll('.scroll-reveal:not(.active)');
+      unobserved.forEach((el) => observer.observe(el));
+    });
+
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
+  }, []);
+
   return (
     <Router>
-      <div className="min-h-screen flex flex-col justify-between bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 transition-colors duration-300">
+      <div id="main-app-container" className="min-h-screen flex flex-col justify-between bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 transition-colors duration-300">
         {/* Header / Navbar */}
         <Navbar />
 

@@ -142,3 +142,187 @@
     background-attachment: scroll;
   }
 }
+
+/* Page Fade-in on load */
+.page-fade-in {
+  animation: pageFadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ken Burns (Slow Cinematic Zoom) */
+.animate-ken-burns {
+  animation: kenBurns 20s ease-out infinite alternate;
+}
+@keyframes kenBurns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+/* Temple Bell swinging */
+.swing-bell {
+  transform-origin: top center;
+  animation: swingBell 4s ease-in-out infinite alternate;
+}
+@keyframes swingBell {
+  0% {
+    transform: rotate(-4deg);
+  }
+  100% {
+    transform: rotate(4deg);
+  }
+}
+
+/* Floating Fireflies / Gold Dust */
+.gold-dust {
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+@keyframes floatGoldDust {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(50px) scale(1.2);
+    opacity: 0;
+  }
+}
+.dust-particle {
+  position: absolute;
+  background: radial-gradient(circle, rgba(252,211,77,0.8) 0%, rgba(204,164,59,0) 70%);
+  border-radius: 50%;
+  animation: floatGoldDust 15s infinite ease-in-out;
+}
+
+/* Letter Reveal Shine Effect */
+.text-shine {
+  background: linear-gradient(to right, #cca43b 20%, #ffffff 40%, #ffffff 60%, #cca43b 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShine 6s linear infinite;
+}
+@keyframes textShine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Divider scale from center */
+.animate-scale-width {
+  transform-origin: center;
+  animation: scaleWidth 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+@keyframes scaleWidth {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Scroll Reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.scroll-reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating */
+.float-slow {
+  animation: floatSlow 5s ease-in-out infinite alternate;
+}
+@keyframes floatSlow {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Flickering Diya flame */
+.diya-flame-glow {
+  animation: diyaFlicker 2s infinite alternate ease-in-out;
+  transform-origin: bottom center;
+}
+@keyframes diyaFlicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 4px #fb923c) drop-shadow(0 0 10px #f97316);
+  }
+  50% {
+    transform: scale(1.05) rotate(1deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 6px #fdba74) drop-shadow(0 0 14px #ea580c);
+  }
+}
+
+/* Button Glow & Lift */
+.btn-premium-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.btn-premium-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(204,164,59,0.5), 0 5px 15px rgba(74,8,10,0.25);
+}
+.btn-premium-glow::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease-out, height 0.6s ease-out;
+}
+.btn-premium-glow:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Reduced Motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-delay: 0s !important;
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+    scroll-behavior: auto !important;
+    transform: none !important;
+  }
+}
