@@ -69,7 +69,7 @@ const About = () => {
         <h2 className="text-xl md:text-2xl font-bold font-serif text-temple-maroon dark:text-temple-gold border-b border-slate-100 dark:border-slate-850 pb-2">
           {t('templeName')}
         </h2>
-        <p className="text-slate-700 dark:text-slate-350 text-[15px] md:text-base leading-relaxed">
+        <p className="text-slate-900 dark:text-slate-100 text-[15px] md:text-base leading-relaxed">
           அருள்மிகு ஸ்ரீ முனியப்பன் சுவாமி தமிழ்நாட்டின் கிராமப்புறங்களில் போற்றப்படும் காவல் தெய்வமாக விளங்குகிறார். கிராம எல்லைகளில் நின்று தீய சக்திகளிடமிருந்தும் பேரிடர்களிலிருந்தும் மக்களைக் காத்து, தர்மத்தை நிலைநாட்டும் மாபெரும் காவல் தெய்வமாக இன்று வரை மக்களால் பக்தியுடன் வழிபடப்பட்டு வருகிறார்.
         </p>
       </div>
@@ -96,7 +96,7 @@ const About = () => {
                 <div className="bg-gradient-to-br from-temple-maroon to-temple-maroonLight text-white font-bold text-sm w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-sm mt-0.5">
                   {index + 1}
                 </div>
-                <p className="text-slate-700 dark:text-slate-350 text-[15px] md:text-base leading-relaxed">
+                <p className="text-slate-900 dark:text-slate-100 text-[15px] md:text-base leading-relaxed">
                   {point}
                 </p>
               </div>

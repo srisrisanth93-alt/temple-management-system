@@ -23,6 +23,7 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 
 import { useLanguage } from './context/LanguageContext';
 import { Globe } from 'lucide-react';
+import { API_BASE_URL } from './utils/api';
 
 const FloatingLanguageToggle = () => {
   const { language, toggleLanguage } = useLanguage();
@@ -51,8 +52,24 @@ const ScrollToTop = () => {
 
 const AppContent = () => {
   const { language } = useLanguage();
+  const [latestAnn, setLatestAnn] = React.useState(null);
 
   React.useEffect(() => {
+    const fetchLatestAnnouncement = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/announcements`);
+        if (response.ok) {
+          const data = await response.json();
+          if (data && data.length > 0) {
+            setLatestAnn(data[0]);
+          }
+        }
+      } catch (err) {
+        console.error('Error fetching announcements:', err);
+      }
+    };
+    fetchLatestAnnouncement();
+
     // Add page-fade-in to the main container
     const mainDiv = document.getElementById('main-app-container');
     if (mainDiv) {
@@ -99,7 +116,19 @@ const AppContent = () => {
         {/* Scrolling Announcement Ticker */}
         <div className="bg-gradient-to-r from-amber-500 via-temple-saffron to-temple-gold text-slate-950 font-serif font-bold text-[14px] md:text-[15px] py-1.5 border-b border-temple-gold/30 shadow-inner select-none flex items-center">
           <marquee behavior="scroll" direction="left" scrollamount="5" className="w-full">
-            ✦ ஒவ்வொரு வெள்ளிக்கிழமையும் சிறப்பு பூஜை நடைபெறும். அனைத்து பக்தர்களும் கலந்து கொள்ள அன்புடன் அழைக்கப்படுகிறார்கள். ✦
+            {latestAnn ? (
+              language === 'en' ? (
+                `✦ Next Special Pooja / Festival: ${latestAnn.titleEN} at ${latestAnn.contentEN}. All devotees are cordially invited to participate! ✦`
+              ) : (
+                `✦ அடுத்த சிறப்பு பூஜை / திருவிழா: ${latestAnn.titleTA} அன்று ${latestAnn.contentTA} மணிக்கு நடைபெறும். அனைத்து பக்தர்களும் கலந்து கொள்ள அன்புடன் அழைக்கப்படுகிறார்கள். ✦`
+              )
+            ) : (
+              language === 'en' ? (
+                "✦ Special Pooja is performed every Friday. All devotees are cordially invited to participate! ✦"
+              ) : (
+                "✦ ஒவ்வொரு வெள்ளிக்கிழமையும் சிறப்பு பூஜை நடைபெறும். அனைத்து பக்தர்களும் கலந்து கொள்ள அன்புடன் அழைக்கப்படுகிறார்கள். ✦"
+              )
+            )}
           </marquee>
         </div>
 

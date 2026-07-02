@@ -496,7 +496,7 @@ const Home = () => {
                   <h4 className="text-base font-bold font-serif text-slate-950 dark:text-white leading-snug">
                     {language === 'en' ? post.titleEN : post.titleTA}
                   </h4>
-                  <p className="text-xs text-slate-600 dark:text-slate-350 line-clamp-3 leading-relaxed">
+                  <p className="text-xs text-slate-900 dark:text-slate-100 line-clamp-3 leading-relaxed">
                     {language === 'en' ? post.contentEN : post.contentTA}
                   </p>
                 </div>
@@ -514,11 +514,45 @@ const Home = () => {
         )}
       </section>
 
-      {/* 6. DEVOTIONAL STUTHIS SECTION */}
-      <section className="bg-[#4a080a] text-white py-16 border-t border-[#cca43b]/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      {/* 6. DEVOTIONAL STUTHIS SECTION (LIGHT BACKGROUND WITH DIYAS) */}
+      <section className="relative bg-[#faf6eb] dark:bg-slate-950 py-16 border-t border-[#cca43b]/30 overflow-hidden">
+        {/* Left Side Diya Decoration */}
+        <div className="absolute bottom-2 left-2 md:left-6 opacity-30 md:opacity-75 z-0 pointer-events-none select-none">
+          <svg className="w-20 h-20 md:w-32 md:h-32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 60 C15 85, 85 85, 85 60 C85 50, 75 45, 50 48 C25 45, 15 50, 15 60 Z" fill="#cca43b" />
+            <path d="M38 75 C38 82, 62 82, 62 75 Z" fill="#b08b30" />
+            <path d="M50 48 C49 40, 51 40, 50 48 Z" stroke="#4a080a" strokeWidth="2.5" />
+            <path className="animate-flicker" d="M50 15 C44 32, 47 38, 50 48 C53 38, 56 32, 50 15 Z" fill="url(#flameGradLeft)" />
+            <defs>
+              <linearGradient id="flameGradLeft" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#ff4500" />
+                <stop offset="60%" stopColor="#ffa500" />
+                <stop offset="100%" stopColor="#ffd700" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        {/* Right Side Diya Decoration */}
+        <div className="absolute bottom-2 right-2 md:right-6 opacity-30 md:opacity-75 z-0 pointer-events-none select-none">
+          <svg className="w-20 h-20 md:w-32 md:h-32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 60 C15 85, 85 85, 85 60 C85 50, 75 45, 50 48 C25 45, 15 50, 15 60 Z" fill="#cca43b" />
+            <path d="M38 75 C38 82, 62 82, 62 75 Z" fill="#b08b30" />
+            <path d="M50 48 C49 40, 51 40, 50 48 Z" stroke="#4a080a" strokeWidth="2.5" />
+            <path className="animate-flicker" d="M50 15 C44 32, 47 38, 50 48 C53 38, 56 32, 50 15 Z" fill="url(#flameGradRight)" />
+            <defs>
+              <linearGradient id="flameGradRight" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#ff4500" />
+                <stop offset="60%" stopColor="#ffa500" />
+                <stop offset="100%" stopColor="#ffd700" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 relative z-10">
           <div className="text-center space-y-2">
-            <h3 className="text-2xl md:text-3xl font-bold font-serif text-[#cca43b] flex items-center justify-center gap-2">
+            <h3 className="text-2xl md:text-3xl font-bold font-serif text-[#4a080a] dark:text-[#cca43b] flex items-center justify-center gap-2">
               <span className="text-[#cca43b]">✦</span> தெய்வீகத் துதிகள் <span className="text-[#cca43b]">✦</span>
             </h3>
             <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#cca43b] to-transparent mx-auto rounded-full" />
@@ -526,27 +560,27 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Parasakthi Stuthi */}
-            <div className="bg-[#3d0608] border border-[#cca43b]/20 p-6 rounded-2xl shadow-inner text-center relative overflow-hidden flex flex-col justify-center min-h-[170px] hover:border-[#cca43b]/50 transition-colors duration-300">
-              <div className="absolute top-3 left-3 text-[#cca43b]/10 text-4xl font-serif">❝</div>
-              <h4 className="font-bold font-serif text-[#cca43b] text-base md:text-lg mb-3">
+            <div className="bg-[#fefcf8] dark:bg-slate-900 border border-[#cca43b]/40 p-6 md:p-8 rounded-2xl shadow-md text-center relative overflow-hidden flex flex-col justify-center min-h-[170px] hover:border-[#cca43b] transition-all duration-300 hover:shadow-lg">
+              <div className="absolute top-3 left-3 text-[#cca43b]/20 text-4xl font-serif">❝</div>
+              <h4 className="font-bold font-serif text-[#4a080a] dark:text-[#cca43b] text-base md:text-lg mb-3">
                 ஸ்ரீ பராசக்தி ஸ்துதி
               </h4>
-              <p className="text-stone-300 italic font-serif leading-relaxed text-[14px] md:text-[15px] px-2">
+              <p className="text-stone-850 dark:text-slate-200 italic font-serif leading-relaxed text-[14px] md:text-[15px] px-2">
                 அன்னையாய் வந்து காக்கும் அபிராமி தாயே போற்றி ! உண்மையாய் எந்த ஒளியே போற்றி ! உலகின் தாயே போற்றி ! முன்னவள் முக்கட் செல்வம் முறுவலில் மகிழும் காளி ! இன்னருள் தருவாய் போற்றி ஏசுநாயகியே போற்றி ! போற்றி !!
               </p>
-              <div className="absolute bottom-3 right-3 text-[#cca43b]/10 text-4xl font-serif">❞</div>
+              <div className="absolute bottom-3 right-3 text-[#cca43b]/20 text-4xl font-serif">❞</div>
             </div>
 
             {/* Mahamuni Stuthi */}
-            <div className="bg-[#3d0608] border border-[#cca43b]/20 p-6 rounded-2xl shadow-inner text-center relative overflow-hidden flex flex-col justify-center min-h-[170px] hover:border-[#cca43b]/50 transition-colors duration-300">
-              <div className="absolute top-3 left-3 text-[#cca43b]/10 text-4xl font-serif">❝</div>
-              <h4 className="font-bold font-serif text-[#cca43b] text-base md:text-lg mb-3">
+            <div className="bg-[#fefcf8] dark:bg-slate-900 border border-[#cca43b]/40 p-6 md:p-8 rounded-2xl shadow-md text-center relative overflow-hidden flex flex-col justify-center min-h-[170px] hover:border-[#cca43b] transition-all duration-300 hover:shadow-lg">
+              <div className="absolute top-3 left-3 text-[#cca43b]/20 text-4xl font-serif">❝</div>
+              <h4 className="font-bold font-serif text-[#4a080a] dark:text-[#cca43b] text-base md:text-lg mb-3">
                 ஸ்ரீ மகாமுனி ஸ்துதி
               </h4>
-              <p className="text-stone-300 italic font-serif leading-relaxed text-[14px] md:text-[15px] px-2">
+              <p className="text-stone-850 dark:text-slate-200 italic font-serif leading-relaxed text-[14px] md:text-[15px] px-2">
                 கீரை மகாநகரிலே நொட்டக்கல் தனிலே தோன்றிய முனியப்ப துரையே கம்பு கட்டாறி, ஈட்டி, கேடயம் ஏந்தி காற்றாய் பரந்த முனியே பெண்களை கன்னமிடும் பித்தனே பேய்போல் திரிந்த முனியே வாமுனி, செம்முனி வளர்ந்த சடாமுனி வரவேண்டும் ராயப்ப துரையே
               </p>
-              <div className="absolute bottom-3 right-3 text-[#cca43b]/10 text-4xl font-serif">❞</div>
+              <div className="absolute bottom-3 right-3 text-[#cca43b]/20 text-4xl font-serif">❞</div>
             </div>
           </div>
         </div>

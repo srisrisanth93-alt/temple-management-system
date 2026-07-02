@@ -4,11 +4,15 @@
 
 @layer base {
   body {
-    @apply bg-orange-50/20 text-slate-800 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100 font-sans;
+    @apply bg-orange-50/20 text-slate-950 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-50 font-sans;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    @apply font-serif text-slate-950 dark:text-white;
+  }
+
+  p, li, label {
+    @apply text-slate-900 dark:text-slate-100;
   }
 }
 

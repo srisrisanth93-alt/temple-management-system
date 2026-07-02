@@ -82,7 +82,9 @@ const Contact = () => {
                 <Phone className="w-5 h-5 text-temple-gold flex-shrink-0 mt-0.5" />
                 <div className="space-y-0.5">
                   <p className="font-semibold text-slate-800 dark:text-white">{t('phoneLabel')}</p>
-                  <p>+91 4282 234567</p>
+                  <a href="tel:+918072426442" className="hover:text-temple-gold transition-colors block text-slate-650 dark:text-slate-400">
+                    +91 80724 26442
+                  </a>
                 </div>
               </div>
 

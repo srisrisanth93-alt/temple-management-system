@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { apiCall } from '../../utils/api';
 import { useLanguage } from '../../context/LanguageContext';
-import { Edit, Trash, Plus, Check, X, Megaphone, Star } from 'lucide-react';
+import { Edit, Trash, Check, X, Megaphone, Star } from 'lucide-react';
 
 const AnnouncementsManager = () => {
   const { language, t } = useLanguage();
@@ -15,7 +15,7 @@ const AnnouncementsManager = () => {
     titleTA: '',
     contentEN: '',
     contentTA: '',
-    pinned: false,
+    pinned: true,
   });
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const AnnouncementsManager = () => {
       titleTA: ann.titleTA,
       contentEN: ann.contentEN,
       contentTA: ann.contentTA,
-      pinned: ann.pinned,
+      pinned: true,
     });
   };
 
@@ -54,7 +54,7 @@ const AnnouncementsManager = () => {
       titleTA: '',
       contentEN: '',
       contentTA: '',
-      pinned: false,
+      pinned: true,
     });
   };
 
@@ -96,7 +96,7 @@ const AnnouncementsManager = () => {
       <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
         <h3 className="text-xl font-bold text-slate-800 dark:text-white flex items-center gap-2">
           <Megaphone className="w-5 h-5 text-temple-saffron" />
-          <span>{t('totalAnnouncements')} Manager</span>
+          <span>Announcement Ticker Manager</span>
         </h3>
       </div>
 
@@ -104,64 +104,31 @@ const AnnouncementsManager = () => {
         {/* Editor Form */}
         <form onSubmit={handleSubmit} className="xl:col-span-5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl space-y-4">
           <h4 className="font-serif font-bold text-slate-800 dark:text-white text-base">
-            {isEditing ? 'Edit Announcement' : 'Create New Announcement'}
+            {isEditing ? 'Edit Announcement Info' : 'Set Ticker Date & Time'}
           </h4>
 
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-slate-500 uppercase">{t('titleEnLabel')}</label>
+            <label className="text-xs font-bold text-slate-500 uppercase">தேதி / Date (Ticker Header)</label>
             <input
               type="text"
               required
-              value={formData.titleEN}
-              onChange={(e) => setFormData({ ...formData, titleEN: e.target.value })}
-              className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-temple-gold"
-            />
-          </div>
-
-          <div className="space-y-1">
-            <label className="text-xs font-semibold text-slate-500 uppercase">{t('titleTaLabel')}</label>
-            <input
-              type="text"
-              required
+              placeholder="e.g. 10-09-2025"
               value={formData.titleTA}
-              onChange={(e) => setFormData({ ...formData, titleTA: e.target.value })}
-              className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-temple-gold"
+              onChange={(e) => setFormData({ ...formData, titleTA: e.target.value, titleEN: e.target.value })}
+              className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-temple-gold text-slate-900 dark:text-white font-medium"
             />
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-slate-500 uppercase">{t('contentEnLabel')}</label>
-            <textarea
-              required
-              rows="3"
-              value={formData.contentEN}
-              onChange={(e) => setFormData({ ...formData, contentEN: e.target.value })}
-              className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-temple-gold resize-none"
-            />
-          </div>
-
-          <div className="space-y-1">
-            <label className="text-xs font-semibold text-slate-500 uppercase">{t('contentTaLabel')}</label>
-            <textarea
-              required
-              rows="3"
-              value={formData.contentTA}
-              onChange={(e) => setFormData({ ...formData, contentTA: e.target.value })}
-              className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-temple-gold resize-none"
-            />
-          </div>
-
-          <div className="flex items-center space-x-2">
+            <label className="text-xs font-bold text-slate-500 uppercase">நேரம் / Time (Ticker Subtext)</label>
             <input
-              type="checkbox"
-              id="pinned"
-              checked={formData.pinned}
-              onChange={(e) => setFormData({ ...formData, pinned: e.target.checked })}
-              className="rounded text-temple-saffron focus:ring-temple-gold"
+              type="text"
+              required
+              placeholder="e.g. அதிகாலை 5:00 மணி"
+              value={formData.contentTA}
+              onChange={(e) => setFormData({ ...formData, contentTA: e.target.value, contentEN: e.target.value })}
+              className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-temple-gold text-slate-900 dark:text-white font-medium"
             />
-            <label htmlFor="pinned" className="text-xs font-semibold text-slate-650 dark:text-slate-350 cursor-pointer">
-              {t('pinnedLabel')}
-            </label>
           </div>
 
           <div className="flex items-center gap-2 pt-2 border-t border-slate-200 dark:border-slate-800">
@@ -188,7 +155,7 @@ const AnnouncementsManager = () => {
           {loading ? (
             <p className="text-sm text-slate-400">Loading...</p>
           ) : announcements.length === 0 ? (
-            <p className="text-sm text-slate-500">No announcements yet.</p>
+            <p className="text-sm text-slate-500">No active announcements.</p>
           ) : (
             announcements.map((ann) => (
               <div 
@@ -197,18 +164,16 @@ const AnnouncementsManager = () => {
               >
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] text-slate-400 font-semibold">{new Date(ann.date).toLocaleDateString()}</span>
-                    {ann.pinned && (
-                      <span className="bg-temple-gold/20 text-temple-goldDark border border-temple-gold/30 text-[9px] font-bold px-2 py-0.5 rounded flex items-center gap-0.5 uppercase">
-                        <Star className="w-2.5 h-2.5 fill-current" /> Pinned
-                      </span>
-                    )}
+                    <span className="text-[10px] text-slate-400 font-semibold">{new Date(ann.createdAt).toLocaleDateString()}</span>
+                    <span className="bg-temple-gold/20 text-temple-goldDark border border-temple-gold/30 text-[9px] font-bold px-2 py-0.5 rounded flex items-center gap-0.5 uppercase">
+                      <Star className="w-2.5 h-2.5 fill-current" /> Active Ticker
+                    </span>
                   </div>
                   <h5 className="font-bold text-slate-800 dark:text-white text-base">
-                    {ann.titleEN} <span className="text-xs text-slate-400 font-normal">({ann.titleTA})</span>
+                    தேதி / Date: <span className="font-normal text-slate-650 dark:text-slate-300">{ann.titleTA}</span>
                   </h5>
-                  <p className="text-xs text-slate-500 dark:text-slate-450 line-clamp-2 leading-relaxed">
-                    {ann.contentEN}
+                  <p className="text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-bold">
+                    நேரம் / Time: <span className="font-normal text-slate-650 dark:text-slate-300">{ann.contentTA}</span>
                   </p>
                 </div>
 

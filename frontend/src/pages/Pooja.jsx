@@ -42,7 +42,7 @@ const Pooja = () => {
               
               <div className="w-12 h-0.5 bg-stone-100 dark:bg-stone-800 mx-auto md:mx-0" />
               
-              <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-serif">
+              <p className="text-sm text-slate-900 dark:text-slate-100 leading-relaxed font-serif">
                 "ஒவ்வொரு வெள்ளிக்கிழமையும் மதியம் 12.00 மணிக்கு மேல் பூஜை நடைபெறும்."
               </p>
             </div>
@@ -66,7 +66,7 @@ const Pooja = () => {
               
               <div className="w-12 h-0.5 bg-stone-100 dark:bg-stone-800 mx-auto md:mx-0" />
               
-              <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-serif">
+              <p className="text-sm text-slate-900 dark:text-slate-100 leading-relaxed font-serif">
                 ஒவ்வொரு பௌர்ணமி அன்றும் மதியம் 12.00 மணிக்குப் பிறகு சிறப்பு பூஜை நடைபெறும்." பக்தர்கள் அனைவரும் தங்களின் குடும்பத்தினருடன் வந்து சுவாமி தரிசனம் பெற வேண்டுகிறோம்.
               </p>
             </div>

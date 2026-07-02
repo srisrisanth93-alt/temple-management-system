@@ -39,9 +39,9 @@ const Navbar = () => {
       <div className="bg-[#120d0a] text-slate-300 text-xs py-2.5 px-4 sm:px-6 lg:px-8 border-b border-stone-800 transition-colors flex flex-col sm:flex-row items-center justify-between gap-2.5">
         {/* Left Side: Phone & Email */}
         <div className="flex flex-wrap items-center justify-center gap-4 text-[11px] sm:text-xs">
-          <a href="tel:+919876543210" className="flex items-center gap-1.5 hover:text-[#cca43b] transition-colors">
+          <a href="tel:+918072426442" className="flex items-center gap-1.5 hover:text-[#cca43b] transition-colors">
             <Phone className="w-3.5 h-3.5 text-[#cca43b]" />
-            <span>+91 98765 43210</span>
+            <span>+91 80724 26442</span>
           </a>
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=muniyappankovil07@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-[#cca43b] transition-colors border-l border-stone-800 pl-4">
             <Mail className="w-3.5 h-3.5 text-[#cca43b]" />
