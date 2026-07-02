@@ -47,14 +47,13 @@ const PoojaFestival = () => {
       {/* Header */}
       <div className="text-center space-y-4">
         <h1 className="text-4xl md:text-5xl font-extrabold font-serif text-temple-maroon dark:text-temple-gold tracking-wide">
-          திருவிழா
+          திருவிழா / Festival Board
         </h1>
         <div className="w-24 h-1 bg-gradient-to-r from-temple-gold to-temple-saffron mx-auto rounded-full" />
       </div>
 
       {/* Upcoming Festivals Section */}
       <section className="space-y-6">
-
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[1, 2].map((n) => (
@@ -67,70 +66,37 @@ const PoojaFestival = () => {
             <p>{t('noFestivals')}</p>
           </div>
         ) : (
-          <div className="space-y-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {festivals.map((fest) => {
-              const isExpanded = expandedFestival === fest._id;
-              const hasTimings = fest.poojaTimings && fest.poojaTimings.length > 0;
               return (
                 <div 
                   key={fest._id}
-                  className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-850 rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-300 flex flex-col justify-between"
+                  className="bg-white dark:bg-slate-900 border border-[#cca43b]/30 rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-300 p-6 space-y-4"
                 >
-                  <div>
-                    {fest.image && (
-                      <img 
-                        src={fest.image.startsWith('/uploads/') ? `${BACKEND_URL}${fest.image}` : fest.image} 
-                        alt={fest.nameEN} 
-                        className="w-full h-56 md:h-72 object-cover border-b border-slate-100 dark:border-slate-850"
-                      />
-                    )}
-                     <div className="p-6 space-y-3">
-                      <span className="inline-block bg-orange-50 dark:bg-slate-800 text-temple-saffron text-xs font-semibold px-3 py-1 rounded-full">
-                        {new Date(fest.date).toLocaleDateString('ta-IN', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric',
-                        })}
-                      </span>
-                      <h3 className="text-xl font-bold font-serif text-slate-800 dark:text-white">
+                  {/* Header badges */}
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="inline-flex items-center gap-1.5 bg-[#4a080a] text-[#cca43b] text-xs font-bold px-3 py-1.5 rounded-lg">
+                      <Calendar className="w-3.5 h-3.5" />
+                      {new Date(fest.date).toLocaleDateString(language === 'en' ? 'en-US' : 'ta-IN', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </span>
+                    {fest.nameTA && (
+                      <span className="inline-flex items-center gap-1.5 bg-amber-50 dark:bg-slate-800 text-temple-goldDark dark:text-temple-gold text-xs font-bold px-3 py-1.5 rounded-lg border border-[#cca43b]/20">
+                        <Clock className="w-3.5 h-3.5" />
                         {fest.nameTA}
-                      </h3>
-                      <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-                        {fest.descriptionTA}
-                      </p>
-                    </div>
+                      </span>
+                    )}
                   </div>
 
-                  {/* Pooja timings list inside festival if available */}
-                  {hasTimings && (
-                    <div className="px-6 pb-6 pt-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/20">
-                      <h4 className="text-xs font-bold text-temple-maroon dark:text-temple-gold uppercase tracking-wider mb-3">
-                        {language === 'en' ? 'Festival Program Schedule' : 'திருவிழா நிகழ்ச்சி நிரல்'}
-                      </h4>
-                      <div className="overflow-x-auto rounded-xl border border-slate-205 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-inner">
-                        <table className="w-full text-left text-[14px] md:text-[16px] border-collapse">
-                          <thead>
-                            <tr className="bg-slate-100 dark:bg-slate-950 border-b border-slate-205 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-serif font-bold text-[15px] md:text-[18px]">
-                              <th className="p-4 md:p-5 whitespace-nowrap">{language === 'en' ? 'Date & Time' : 'நாள் & நேரம்'}</th>
-                              <th className="p-4 md:p-5">{language === 'en' ? 'Event / Ritual' : 'நிகழ்ச்சி / அர்ச்சனை'}</th>
-                            </tr>
-                          </thead>
-                          <tbody className="divide-y divide-slate-100 dark:divide-slate-800/50 text-slate-800 dark:text-slate-200">
-                            {fest.poojaTimings.map((timeItem, tIdx) => (
-                              <tr key={tIdx} className="hover:bg-slate-50/50 dark:hover:bg-slate-950/10">
-                                <td className="p-4 md:p-5 font-bold text-temple-saffron dark:text-temple-gold leading-relaxed">
-                                  {translateTime(timeItem.time)}
-                                </td>
-                                <td className="p-4 md:p-5 leading-relaxed font-medium">
-                                  {timeItem.nameTA}
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  )}
+                  <div className="space-y-1 pt-2 border-t border-slate-100 dark:border-slate-800">
+                    <span className="block text-[10px] text-stone-500 font-bold uppercase tracking-wider">விவரங்கள் / Details:</span>
+                    <p className="text-sm text-slate-900 dark:text-slate-100 leading-relaxed whitespace-pre-line font-medium">
+                      {language === 'en' ? fest.descriptionEN : fest.descriptionTA}
+                    </p>
+                  </div>
                 </div>
               );
             })}

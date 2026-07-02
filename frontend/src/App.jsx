@@ -113,21 +113,13 @@ const AppContent = () => {
         {/* Header / Navbar */}
         <Navbar />
 
-        {/* Scrolling Announcement Ticker */}
+        {/* Scrolling Announcement Ticker (Always in Tamil) */}
         <div className="bg-gradient-to-r from-amber-500 via-temple-saffron to-temple-gold text-slate-950 font-serif font-bold text-[14px] md:text-[15px] py-1.5 border-b border-temple-gold/30 shadow-inner select-none flex items-center">
           <marquee behavior="scroll" direction="left" scrollamount="5" className="w-full">
             {latestAnn ? (
-              language === 'en' ? (
-                `✦ Next Special Pooja / Festival: ${latestAnn.titleEN} at ${latestAnn.contentEN}. All devotees are cordially invited to participate! ✦`
-              ) : (
-                `✦ அடுத்த சிறப்பு பூஜை / திருவிழா: ${latestAnn.titleTA} அன்று ${latestAnn.contentTA} மணிக்கு நடைபெறும். அனைத்து பக்தர்களும் கலந்து கொள்ள அன்புடன் அழைக்கப்படுகிறார்கள். ✦`
-              )
+              `✦ அடுத்த சிறப்பு பூஜை / திருவிழா: ${latestAnn.titleTA} அன்று ${latestAnn.contentTA} மணிக்கு நடைபெறும். அனைத்து பக்தர்களும் கலந்து கொள்ள அன்புடன் அழைக்கப்படுகிறார்கள். ✦`
             ) : (
-              language === 'en' ? (
-                "✦ Special Pooja is performed every Friday. All devotees are cordially invited to participate! ✦"
-              ) : (
-                "✦ ஒவ்வொரு வெள்ளிக்கிழமையும் சிறப்பு பூஜை நடைபெறும். அனைத்து பக்தர்களும் கலந்து கொள்ள அன்புடன் அழைக்கப்படுகிறார்கள். ✦"
-              )
+              "✦ ஒவ்வொரு வெள்ளிக்கிழமையும் சிறப்பு பூஜை நடைபெறும். அனைத்து பக்தர்களும் கலந்து கொள்ள அன்புடன் அழைக்கப்படுகிறார்கள். ✦"
             )}
           </marquee>
         </div>
