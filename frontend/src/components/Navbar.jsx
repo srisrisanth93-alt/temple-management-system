@@ -43,7 +43,7 @@ const Navbar = () => {
             <Phone className="w-3.5 h-3.5 text-[#cca43b]" />
             <span>+91 98765 43210</span>
           </a>
-          <a href="mailto:muniyappankovil07@gmail.com" className="flex items-center gap-1.5 hover:text-[#cca43b] transition-colors border-l border-stone-800 pl-4">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=muniyappankovil07@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-[#cca43b] transition-colors border-l border-stone-800 pl-4">
             <Mail className="w-3.5 h-3.5 text-[#cca43b]" />
             <span>muniyappankovil07@gmail.com</span>
           </a>
