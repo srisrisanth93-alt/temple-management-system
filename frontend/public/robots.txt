@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
 
-Sitemap: https://tourmaline-tiramisu-830675.netlify.app/sitemap.xml
+Sitemap: https://muniyappan.in/sitemap.xml
