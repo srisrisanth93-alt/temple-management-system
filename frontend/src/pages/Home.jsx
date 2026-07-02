@@ -143,7 +143,7 @@ const Home = () => {
     <div className="w-full bg-[#fcfaf7] dark:bg-slate-950 transition-colors duration-300 relative overflow-hidden">
       
       {/* 1. HERO CAROUSEL / BANNER WITH DIVINE LIGHTS & FLOWERS */}
-      <section className="relative h-[70vh] md:h-[85vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
         {/* Slide background with crossfade & Ken Burns effect */}
         {slides.map((slide, idx) => (
           <div
@@ -204,33 +204,24 @@ const Home = () => {
         </div>
  
         {/* Hero Content Overlay */}
-        <div className="relative max-w-5xl mx-auto px-4 text-center text-white space-y-6 animate-fade-in z-10 pt-8">
+        <div className="relative max-w-5xl mx-auto px-4 text-center text-white space-y-4 md:space-y-6 animate-fade-in z-10 pt-4 md:pt-8 pb-12">
           <span className="text-[11px] md:text-sm font-serif tracking-widest text-[#cca43b] uppercase font-bold flex items-center justify-center gap-2">
             <span className="animate-flicker text-sm">🪔</span> Welcome to <span className="animate-flicker text-sm">🪔</span>
           </span>
-          <div className="space-y-1">
-            <h1 className="text-4xl md:text-7xl font-serif font-extrabold tracking-wide text-white leading-none text-shine">
+          <div className="space-y-3 md:space-y-4">
+            <h1 className="text-4xl md:text-7xl font-serif font-extrabold tracking-wide text-white leading-tight text-shine pb-1">
               ஸ்ரீ முனியப்பன்
             </h1>
-            <h2 className="text-xl md:text-3.5xl font-serif tracking-widest text-[#cca43b] font-bold uppercase mt-2">
+            <h2 className="text-xl md:text-3.5xl font-serif tracking-widest text-[#cca43b] font-bold uppercase leading-normal pt-1">
               திருக்கோவில்
             </h2>
           </div>
           
           <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#cca43b] to-transparent mx-auto my-3 animate-scale-width" />
           
-          <p className="text-[14px] md:text-[18px] text-slate-200 font-serif leading-relaxed whitespace-pre-line italic drop-shadow-md">
+          <p className="text-[12px] md:text-[18px] text-slate-200 font-serif leading-relaxed max-w-2xl mx-auto whitespace-pre-line italic drop-shadow-md">
             {slides[currentSlide].quoteTA}
           </p>
- 
-          <div className="pt-4">
-            <Link 
-              to="/about" 
-              className="inline-block px-8 py-3 bg-[#cca43b] hover:bg-[#b08b30] text-slate-950 font-bold rounded shadow-lg hover:shadow-xl hover:scale-105 transition-all text-xs md:text-sm uppercase tracking-widest cursor-pointer btn-premium-glow"
-            >
-              KNOW MORE
-            </Link>
-          </div>
         </div>
  
         {/* Carousel controls */}
@@ -255,11 +246,11 @@ const Home = () => {
       <section className="relative z-20 -mt-10 md:-mt-16 max-w-7xl mx-auto px-4">
         <div className="bg-[#4a080a] border border-[#cca43b]/30 rounded-xl overflow-hidden shadow-2xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y lg:divide-y-0 lg:divide-x divide-[#cca43b]/20">
           
-          {/* Link 1: About */}
-          <Link to="/about" className="p-6 flex flex-col items-center text-center group hover:bg-[#3d0608] transition-all">
-            <Info className="w-8 h-8 text-[#cca43b] mb-2.5 group-hover:scale-110 transition-transform duration-300" />
-            <h4 className="font-serif font-bold text-white text-[13px] tracking-wider uppercase">ABOUT TEMPLE</h4>
-            <p className="text-[10px] text-stone-400 mt-1 uppercase tracking-wider">History & Importance</p>
+          {/* Link 1: Pooja */}
+          <Link to="/pooja" className="p-6 flex flex-col items-center text-center group hover:bg-[#3d0608] transition-all">
+            <Flame className="w-8 h-8 text-[#cca43b] mb-2.5 group-hover:scale-110 transition-transform duration-300 animate-flicker" />
+            <h4 className="font-serif font-bold text-white text-[13px] tracking-wider uppercase">POOJAI</h4>
+            <p className="text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Daily & Special Timings</p>
             <span className="text-[9px] text-[#cca43b] font-bold mt-4 inline-flex items-center gap-0.5 tracking-widest uppercase group-hover:underline">
               READ MORE <ChevronRight className="w-3 h-3" />
             </span>
@@ -285,11 +276,11 @@ const Home = () => {
             </span>
           </Link>
 
-          {/* Link 4: Pooja */}
-          <Link to="/pooja" className="p-6 flex flex-col items-center text-center group hover:bg-[#3d0608] transition-all">
-            <Flame className="w-8 h-8 text-[#cca43b] mb-2.5 group-hover:scale-110 transition-transform duration-300 animate-flicker" />
-            <h4 className="font-serif font-bold text-white text-[13px] tracking-wider uppercase">POOJAI</h4>
-            <p className="text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Daily & Special Timings</p>
+          {/* Link 4: About */}
+          <Link to="/about" className="p-6 flex flex-col items-center text-center group hover:bg-[#3d0608] transition-all">
+            <Info className="w-8 h-8 text-[#cca43b] mb-2.5 group-hover:scale-110 transition-transform duration-300" />
+            <h4 className="font-serif font-bold text-white text-[13px] tracking-wider uppercase">ABOUT TEMPLE</h4>
+            <p className="text-[10px] text-stone-400 mt-1 uppercase tracking-wider">History & Importance</p>
             <span className="text-[9px] text-[#cca43b] font-bold mt-4 inline-flex items-center gap-0.5 tracking-widest uppercase group-hover:underline">
               READ MORE <ChevronRight className="w-3 h-3" />
             </span>
@@ -336,19 +327,15 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Right side row of 4 rounded-corner images with floating effects */}
-          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="aspect-[3/4] bg-stone-100 rounded-2xl overflow-hidden shadow border border-[#cca43b]/30 float-slow hover:shadow-xl hover:scale-105 transition-all duration-500">
-              <img src="/temple_hero_banner.jpg" alt="Deity Closeup" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
-            </div>
-            <div className="aspect-[3/4] bg-stone-100 rounded-2xl overflow-hidden shadow border border-[#cca43b]/30 translate-y-3 hover:shadow-xl hover:scale-105 transition-all duration-500">
-              <img src="/temple_hero_banner.jpg" alt="Temple Shrine" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
-            </div>
-            <div className="aspect-[3/4] bg-stone-100 rounded-2xl overflow-hidden shadow border border-[#cca43b]/30 float-slow hover:shadow-xl hover:scale-105 transition-all duration-500">
-              <img src="/temple_hero_banner.jpg" alt="Gopuram Structure" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
-            </div>
-            <div className="aspect-[3/4] bg-stone-100 rounded-2xl overflow-hidden shadow border border-[#cca43b]/30 translate-y-3 hover:shadow-xl hover:scale-105 transition-all duration-500">
-              <img src="/temple_hero_banner.jpg" alt="Devotional Items" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+          {/* Right side single glorious temple photo */}
+          <div className="lg:col-span-7 relative group scroll-reveal">
+            <div className="absolute inset-0 bg-gradient-to-r from-temple-saffron to-temple-gold rounded-3xl blur-md opacity-20 -m-1" />
+            <div className="relative bg-white dark:bg-slate-900 border border-[#cca43b]/40 p-3 rounded-3xl shadow-2xl overflow-hidden">
+              <img 
+                src="/temple_hero_banner.jpg" 
+                alt="Arulmigu Sri Muniyappan Swamy Deities" 
+                className="w-full h-64 md:h-[400px] object-cover rounded-2xl transition-transform duration-700 group-hover:scale-103 shadow-md"
+              />
             </div>
           </div>
 

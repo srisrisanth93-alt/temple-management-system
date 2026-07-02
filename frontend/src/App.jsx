@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
 
@@ -36,6 +36,17 @@ const FloatingLanguageToggle = () => {
       <span>{language === 'en' ? 'தமிழ்' : 'English'}</span>
     </button>
   );
+};
+
+// Scroll Reset Component for navigation transitions
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
 };
 
 const AppContent = () => {
@@ -80,6 +91,7 @@ const AppContent = () => {
 
   return (
     <Router>
+      <ScrollToTop />
       <div id="main-app-container" className="min-h-screen flex flex-col justify-between bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 transition-colors duration-300">
         {/* Header / Navbar */}
         <Navbar />

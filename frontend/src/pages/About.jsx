@@ -48,15 +48,15 @@ const About = () => {
             alt="Arulmigu Sri Muniyappan Deities" 
             className="w-full h-64 md:h-[400px] object-cover rounded-2xl shadow transition-transform duration-700 hover:scale-103"
           />
-          <div className="absolute bottom-6 left-6 right-6 bg-slate-950/80 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/10 text-white flex items-center gap-3">
-            <div className="bg-gradient-to-r from-temple-gold to-temple-saffron text-slate-950 p-2.5 rounded-xl">
-              <ShieldCheck className="w-6 h-6" />
+          <div className="absolute bottom-3 left-3 right-3 md:bottom-6 md:left-6 md:right-6 bg-slate-950/85 backdrop-blur-md p-2.5 md:px-6 md:py-4 rounded-xl md:rounded-2xl border border-white/10 text-white flex items-center gap-2 md:gap-3">
+            <div className="bg-gradient-to-r from-temple-gold to-temple-saffron text-slate-950 p-1.5 md:p-2.5 rounded-lg md:rounded-xl shrink-0">
+              <ShieldCheck className="w-4 h-4 md:w-6 md:h-6" />
             </div>
-            <div>
-              <h4 className="font-bold text-base md:text-lg text-temple-gold">
+            <div className="min-w-0">
+              <h4 className="font-bold text-[10px] sm:text-xs md:text-lg text-temple-gold line-clamp-2 leading-tight md:leading-normal">
                 {t('templeName')}
               </h4>
-              <p className="text-xs text-slate-300">
+              <p className="text-[9px] md:text-xs text-slate-300 truncate mt-0.5">
                 9வது வார்டு, அண்ணாநகர், கீரிப்பட்டி கிராமம், சேலம் மாவட்டம்
               </p>
             </div>
