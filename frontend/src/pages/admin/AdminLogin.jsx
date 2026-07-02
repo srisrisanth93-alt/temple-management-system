@@ -149,12 +149,6 @@ const AdminLogin = () => {
             )}
           </button>
         </form>
-
-        <div className="mt-6 text-center">
-          <p className="text-[10px] text-stone-500 font-mono tracking-wider">
-            API Endpoint: {API_BASE_URL}
-          </p>
-        </div>
       </div>
     </div>
   );
