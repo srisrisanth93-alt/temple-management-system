@@ -121,7 +121,7 @@ const Navbar = () => {
             </div>
 
             {/* Admin / Logout */}
-            {isAdmin && (
+            {isAdmin && location.pathname.startsWith('/admin') && (
               <div className="flex items-center space-x-3 border-l border-[#cca43b]/20 pl-4">
                 <Link
                   to="/admin/dashboard"
@@ -180,7 +180,7 @@ const Navbar = () => {
             </Link>
           ))}
           
-          {isAdmin && (
+          {isAdmin && location.pathname.startsWith('/admin') && (
             <div className="border-t border-slate-800 pt-4 mt-4 space-y-2">
               <Link
                 to="/admin/dashboard"
