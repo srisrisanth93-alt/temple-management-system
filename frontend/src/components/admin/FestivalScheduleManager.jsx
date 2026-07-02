@@ -66,15 +66,18 @@ const FestivalScheduleManager = () => {
     }
 
     try {
-      const token = localStorage.getItem('adminToken');
-      const headers = { Authorization: `Bearer ${token}` };
-
       if (editingId) {
         // Update request
-        await apiCall(`/festival-schedules/${editingId}`, 'PUT', formData, headers);
+        await apiCall(`/festival-schedules/${editingId}`, {
+          method: 'PUT',
+          body: JSON.stringify(formData)
+        });
       } else {
         // Create request
-        await apiCall('/festival-schedules', 'POST', formData, headers);
+        await apiCall('/festival-schedules', {
+          method: 'POST',
+          body: JSON.stringify(formData)
+        });
       }
 
       handleCancel();
@@ -87,9 +90,9 @@ const FestivalScheduleManager = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this schedule item?')) return;
     try {
-      const token = localStorage.getItem('adminToken');
-      const headers = { Authorization: `Bearer ${token}` };
-      await apiCall(`/festival-schedules/${id}`, 'DELETE', null, headers);
+      await apiCall(`/festival-schedules/${id}`, {
+        method: 'DELETE'
+      });
       fetchSchedules();
     } catch (err) {
       alert('Failed to delete schedule item: ' + err.message);
