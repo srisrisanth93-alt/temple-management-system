@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
-import { apiCall } from '../../utils/api';
+import { apiCall, API_BASE_URL } from '../../utils/api';
 import { ShieldCheck, Lock, User, Eye, EyeOff, RefreshCw, AlertCircle } from 'lucide-react';
 
 const AdminLogin = () => {
@@ -150,6 +150,11 @@ const AdminLogin = () => {
           </button>
         </form>
 
+        <div className="mt-6 text-center">
+          <p className="text-[10px] text-stone-500 font-mono tracking-wider">
+            API Endpoint: {API_BASE_URL}
+          </p>
+        </div>
       </div>
     </div>
   );
